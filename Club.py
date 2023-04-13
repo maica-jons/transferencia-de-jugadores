@@ -1,9 +1,8 @@
 class Club():
     lista_clubes=[]
-    def __init__(self, nombre, id, pais, liga, presupuesto, valor_del_club):
+    def __init__(self, nombre, id, liga, presupuesto, valor_del_club):
         self.nombre=nombre
         self.id=id
-        self.pais=pais
         self.liga=liga
         self.presupuesto=presupuesto
         self.valor_del_club=valor_del_club
