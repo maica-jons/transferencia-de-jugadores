@@ -1,0 +1,2 @@
+class Liga():
+    pass
