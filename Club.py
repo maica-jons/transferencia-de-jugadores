@@ -1,6 +1,8 @@
+from Jugador import Jugador
+
 class Club():
     lista_clubes=[]
-    def __init__(self, nombre, id, liga, presupuesto, valor_del_club):
+    def __init__(self, nombre, id, liga, presupuesto=100000, valor_del_club=0):
         self.nombre=nombre
         self.id=id
         self.liga=liga
@@ -16,3 +18,14 @@ class Club():
         lista_clubes.append(self.id)
         print("Club cargado exitosamente.")
         return lista_clubes
+
+    def comprar_jugador(self, club_vendedor, jugador):
+        if jugador.valor <= self.presupuesto:
+            club_vendedor.lista_jugadores.remove(jugador)
+            self.lista_jugadores.append(jugador)
+            jugador.club=self.nombre
+            self.presupuesto-=jugador.valor
+            self.valor_del_club+=jugador.valor
+        else:
+            print("No hay presupuesto suficiente para comprar ese jugador.")
+
