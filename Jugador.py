@@ -19,6 +19,15 @@ class Jugador():
         
     #validaciones aca adentro
 
+    def verificardni_jugador(self,lista_jugadores):
+        while self.dni in lista_jugadores:
+            print("El dni del jugador ya existe. Ingrese otro.")
+            self.nombre=str(input("Ingrese nombre del jugador: "))
+            self.dni=int(input("Ingrese dni del jugador: "))
+        lista_jugadores.append(self.dni)
+        print("Jugador cargado exitosamente.")
+        return lista_jugadores
+
     def CrearJugador(self): #todo esto dentro del main. usuario solo interactua con el main. 
         nombre = input("Ingrese el nombre del jugador: ")
         apellido = input("Ingrese el apellido del jugador: ")
