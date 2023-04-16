@@ -8,8 +8,12 @@ class Arquero(Jugador):
         self.penales_atajados = penales_atajados
 
     def AtajarPenal(self):
-        pass
+        self.penales_atajados+=1
+        
 
     def TenerVallaInvicta(self):
-        pass
+        self.vallas_invictas+=1
+
+    def RecibirGol(self):
+        self.goles_recibidos+=1
         

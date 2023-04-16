@@ -7,7 +7,9 @@ class JugadorDeCampo(Jugador):
         self.asistencia = asistencia
 
     def HacerGol(self):
-        pass
+        self.goles+=1
+        
 
     def DarAsistencia(self):
-        pass
+        self.asistencia+=1
+        
