@@ -20,18 +20,12 @@ class Persona():
         diferencia = fecha_actual - fechanacimiento
         edad = math.floor(diferencia.days / 365)
         return edad
+    
+    def validar_longitud_dni(self):
+        while self.dni <= 10000000 or self.dni >= 99999999:
+            self.dni = int(input("Ingrese nuevamente un DNI valido: "))
 
     def verificardni_jugador(self,lista_personas):
-        if len(self.dni)!=8:
-            print('El DNI {} no cumple con el formato.Debe contener 8 digitos'.format(self.dni))
-            return False
-        for persona in Persona.lista_personas:
-            if persona.dni == self.dni:
-                print('El usuario esta registrado OK')
-                return True
-            else:
-                print('El usuario no esta registrado, para cargar las notas primero debe registrarlo')
-                return False
         while self.dni in lista_personas:
             print("El dni de la persona ya existe. Ingrese otro.")
             self.nombre = str(input("Ingrese nombre de la persona: "))
