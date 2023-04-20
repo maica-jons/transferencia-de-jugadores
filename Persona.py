@@ -14,7 +14,7 @@ class Persona():
         self.estatura = estatura
         self.peso = peso
 
-    def CalcularEdad(self):
+    def calcular_edad(self):
         fechanacimiento = datetime.datetime.strptime(self.fecha_nacimiento, "%d/%m/%Y").date()
         fecha_actual = datetime.date.today()
         diferencia = fecha_actual - fechanacimiento
@@ -25,7 +25,7 @@ class Persona():
         while self.dni <= 10000000 or self.dni >= 99999999:
             self.dni = int(input("Ingrese nuevamente un DNI valido: "))
 
-    def verificardni_jugador(self,lista_personas):
+    def verificar_dni_jugador(self,lista_personas):
         while self.dni in lista_personas:
             print("El dni de la persona ya existe. Ingrese otro.")
             self.nombre = str(input("Ingrese nombre de la persona: "))
