@@ -29,10 +29,12 @@ while(menu!=10 ):
 
     elif guardo==2:
         nombre=str(input("Ingrese el nombre del club: "))
-        id=str(input("Ingrese el ID del club: "))
+        id=int(input("Ingrese el ID del club: "))
         liga=str(input("Ingrese la liga del club: "))
         presupuesto=str(input("Ingrese el presupuesto del club: "))
-
+        club1=Club(nombre,id,liga,presupuesto)
+        Club.lista_clubes= club1.verificarid_club(Club.lista_clubes)
+        
 
     elif guardo==3:
         pass
