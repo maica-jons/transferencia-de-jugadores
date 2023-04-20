@@ -13,7 +13,7 @@ class Liga():
         self.lista_clubes = [] #clubes de cada liga
         self.cant_clubes = 0
     def ingresar_club_a_liga(self,club:Club):
-        
+        pass
 
-    def validar_club(self,club):
+    def validar_club(self, club):
         pass
