@@ -27,7 +27,13 @@ class Jugador(Persona):
         while self.estado!="Activo" and self.estado!="activo" and self.estado!="Lesionado" and self.estado!="lesionado":
             self.estado = input("Ingrese nuevamente un estado físico del jugador correctamente: ")
 
+    def validar_cantidad_partidos(self):
+        if self.cantidad_partidos < 0:
+            self.cantidad_partidos = int(input("Ingrese 0 o la cantidad de partidos que disputó el jugador correctamente: "))
     
+    def validar_cantidad_tarjetas(self):
+        if self.cantidad_tarjetas < 0:
+            self.cantidad_tarjetas = int(input("Ingrese 0 o la cantidad de tarjetas que le sacaron al jugador correctamente: "))
 
     def CrearJugador(self): #todo esto dentro del main. usuario solo interactua con el main. 
         nombre = input("Ingrese el nombre del jugador: ")
