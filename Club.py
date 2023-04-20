@@ -2,12 +2,12 @@ from Jugador import Jugador
 
 class Club():
     lista_clubes=[]
-    def __init__(self, nombre, id, liga, presupuesto=100000, valor_del_club=0):
+    def __init__(self, nombre, id, liga, presupuesto=100000):
         self.nombre=nombre
         self.id=id
         self.liga=liga
         self.presupuesto=presupuesto
-        self.valor_del_club=valor_del_club
+        self.valor_del_club=0
         self.lista_jugadores=[]
 
     def verificarid_club(self,lista_clubes):

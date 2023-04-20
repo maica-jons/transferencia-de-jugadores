@@ -14,7 +14,7 @@ class Persona():
         self.estatura = estatura
         self.peso = peso
 
-    def CalcularEdad(self):
+    def calcular_edad(self):
         fechanacimiento = datetime.datetime.strptime(self.fecha_nacimiento, "%d/%m/%Y").date()
         fecha_actual = datetime.date.today()
         diferencia = fecha_actual - fechanacimiento
