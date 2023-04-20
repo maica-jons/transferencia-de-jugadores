@@ -21,8 +21,7 @@ def menu():
                """))
     return menu
 
-matriz_notas=[]
-while(menu!=11 ):
+while(menu!=10 ):
     guardo=menu()
     if guardo==1:
         nombre=str(input("Ingrese el nombre de la liga: "))
@@ -33,7 +32,7 @@ while(menu!=11 ):
         id=str(input("Ingrese el ID del club: "))
         liga=str(input("Ingrese la liga del club: "))
         presupuesto=str(input("Ingrese el presupuesto del club: "))
-        
+
 
     elif guardo==3:
 
