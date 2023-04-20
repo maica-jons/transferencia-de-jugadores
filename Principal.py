@@ -5,6 +5,7 @@ import JugadorDeCampo
 import Club
 import Liga
 
+
 def validar_longitud_dni(dni):
     while dni <= 10000000 or dni >= 99999999:
         dni = int(input("Ingrese nuevamente un DNI valido: "))
@@ -71,7 +72,6 @@ def validar_valor_club(valor_del_club):
     return valor_del_club
 
 
-
 def menu():
     menu=int(input("""Elija que accion desea
 1- Agregar Liga
@@ -109,7 +109,7 @@ while(menu!=10 ):
         apellido=str(input("Ingrese el apellido del jugador: "))
         dni=int(input("Ingrese el dni del jugador: "))
         dni=validar_longitud_dni(dni)
-        
+
 
     elif guardo==4:
         pass
