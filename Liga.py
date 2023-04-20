@@ -12,6 +12,7 @@ class Liga():
         self.pais = pais
         self.lista_clubes = [] #clubes de cada liga
         self.cant_clubes = 0
+        
     def ingresar_club_a_liga(self,club:Club):
         pass
 
