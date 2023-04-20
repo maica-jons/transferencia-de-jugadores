@@ -5,7 +5,6 @@ import JugadorDeCampo
 import Club
 import Liga
 
-
 def menu():
     menu=int(input("""Elija que accion desea
 1- Agregar Liga
