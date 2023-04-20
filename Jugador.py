@@ -16,24 +16,29 @@ class Jugador(Persona):
         self.cantidad_tarjetas = cantidad_tarjetas
 
     def validar_valor(self):
-        if self.valor <= 0 or self.valor >= 2000000:
+        while self.valor <= 0 or self.valor >= 2000000:
             self.valor = float(input("Ingrese nuevamente un valor del jugador válido: "))
+        return self.valor
     
     def validar_club(self):
-        if self.club in Club.lista_clubes:
+        while self.club in Club.lista_clubes:
             self.club = input("Ingrese un club que se encuentre creado: ")
+        return self.club
         
     def validar_estado(self):
-        while self.estado!="Activo" and self.estado!="activo" and self.estado!="Lesionado" and self.estado!="lesionado":
+        while self.estado != "Activo" and self.estado != "activo" and self.estado != "Lesionado" and self.estado != "lesionado":
             self.estado = input("Ingrese nuevamente un estado físico del jugador correctamente: ")
+        return self.estado
 
     def validar_cantidad_partidos(self):
-        if self.cantidad_partidos < 0:
+        while self.cantidad_partidos < 0:
             self.cantidad_partidos = int(input("Ingrese 0 o la cantidad de partidos que disputó el jugador correctamente: "))
+        return self.cantidad_partidos
     
     def validar_cantidad_tarjetas(self):
-        if self.cantidad_tarjetas < 0:
+        while self.cantidad_tarjetas < 0:
             self.cantidad_tarjetas = int(input("Ingrese 0 o la cantidad de tarjetas que le sacaron al jugador correctamente: "))
+        return self.cantidad_tarjetas
 
     def CrearJugador(self): #todo esto dentro del main. usuario solo interactua con el main. 
         nombre = input("Ingrese el nombre del jugador: ")
