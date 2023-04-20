@@ -22,6 +22,16 @@ class Persona():
         return edad
 
     def verificardni_jugador(self,lista_personas):
+        if len(self.dni)!=8:
+            print('El DNI {} no cumple con el formato.Debe contener 8 digitos'.format(self.dni))
+            return False
+        for persona in Persona.lista_personas:
+            if persona.dni == self.dni:
+                print('El usuario esta registrado OK')
+                return True
+            else:
+                print('El usuario no esta registrado, para cargar las notas primero debe registrarlo')
+                return False
         while self.dni in lista_personas:
             print("El dni de la persona ya existe. Ingrese otro.")
             self.nombre = str(input("Ingrese nombre de la persona: "))
