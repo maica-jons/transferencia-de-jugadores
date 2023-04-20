@@ -35,18 +35,25 @@ while(menu!=10 ):
 
 
     elif guardo==3:
+        pass
 
     elif guardo==4:
+        pass
 
     elif guardo==5:
+        pass
 
     elif guardo==6:
+        pass
 
     elif guardo==7:
+        pass
 
     elif guardo==8:
+        pass
 
     elif guardo==9:
+        pass
 
     elif guardo<1 or guardo>11:
         print("Error al elegir accion. Intente de nuevo.")
