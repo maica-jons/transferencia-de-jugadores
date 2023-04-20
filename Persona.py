@@ -22,7 +22,7 @@ class Persona():
         return edad
     
     def validar_longitud_dni(self):
-        while self.dni <= 10000000 or self.dni >= 99999999:  # len(str(self.dni)) != 8:
+        while self.dni <= 10000000 or self.dni >= 99999999:
             self.dni = int(input("Ingrese nuevamente un DNI valido: "))
         return self.dni
     
