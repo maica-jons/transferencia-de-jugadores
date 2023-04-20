@@ -26,6 +26,7 @@ while(menu!=10 ):
     if guardo==1:
         nombre=str(input("Ingrese el nombre de la liga: "))
         pais=str(input("Ingrese el pais de la liga: "))
+        liga=Liga(nombre,pais)
 
     elif guardo==2:
         nombre=str(input("Ingrese el nombre del club: "))
