@@ -66,3 +66,12 @@ class Liga():
     tarjetas
     cont de goles 0
     valla invicta si termina en 0
+    # hubo goels
+    #     quien
+    #     ingresarlo
+    # sumarle +1
+    # while hasta que sea no
+    # asistencia
+    # tarjetas
+    # cont de goles 0
+    # valla invicta si termina en 0

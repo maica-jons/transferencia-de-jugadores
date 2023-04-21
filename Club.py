@@ -25,15 +25,15 @@ class Club():
             self.liga = input("Ingrese una liga existente: ")
         return self.liga
     
-    def validar_presupuesto(self):
-        while self.presupuesto < 0:
-            self.presupuesto = float(input("Ingrese un monto de presupuesto valido: "))
-        return self.presupuesto
+    # def validar_presupuesto(self):
+    #     while self.presupuesto < 0:
+    #         self.presupuesto = float(input("Ingrese un monto de presupuesto valido: "))
+    #     return self.presupuesto
     
-    def validar_valor_club(self):
-        while self.valor_del_club < 0:
-            self.valor_del_club = float(input("Ingrese un valor de club valido: "))
-        return self.valor_del_club
+    # def validar_valor_club(self):
+    #     while self.valor_del_club < 0:
+    #         self.valor_del_club = float(input("Ingrese un valor de club valido: "))
+    #     return self.valor_del_club
 
     def comprar_jugador(self, club_vendedor, jugador):
         if jugador.valor <= self.presupuesto:
