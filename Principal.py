@@ -12,6 +12,12 @@ def validar_longitud_dni(dni):
         dni = int(input("Ingrese nuevamente un DNI valido: "))
     return dni
 
+def validar_fecha_nacimiento(fecha_nacimiento):
+    try:
+        datetime.datetime.strptime(fecha_nacimiento, '%d/%m/%Y')
+    except ValueError:
+        raise ValueError("La fecha de nacimiento debe estar en formato dd/mm/aaaa")
+
 def calcular_edad(fecha_nacimiento):
     fecha_nacimiento = datetime.datetime.strptime(fecha_nacimiento, "%d/%m/%Y").date()
     fecha_actual = datetime.date.today()
@@ -136,6 +142,7 @@ while(menu!=10 ):
             dni=int(input("El dni ya existe. Ingrese el dni del jugador: "))
             dni=validar_longitud_dni(dni)
         fecha_nacimiento = input("Ingrese la fecha de nacimiento del jugador en formato dd/mm/aaaa: ") 
+        fecha_nacimiento = validar_fecha_nacimiento(fecha_nacimiento)
         edad = calcular_edad(fecha_nacimiento) # falta validar que ingrese bien la fecha de nacimiento
         nacionalidad = input("Ingrese la nacionalidad del jugador: ")
         estatura = int(input("Ingrese la estatura en metros del jugador: "))
