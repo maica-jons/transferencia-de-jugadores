@@ -21,4 +21,3 @@ class JugadorDeCampo(Jugador):
         while self.asistencia < 0:
             self.asistencia = int(input("Ingrese nuevamente una cantidad de asistencia: "))
         return self.asistencia
-        

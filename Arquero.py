@@ -24,4 +24,3 @@ class Arquero(Jugador):
         while self.goles_recibidos < 0:
             self.goles_recibidos = int(input("Ingrese una cantidad valida de goles recibidos: "))
         return self.goles_recibidos
-        
