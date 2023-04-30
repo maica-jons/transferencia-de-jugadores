@@ -129,7 +129,7 @@ while(menu!=10 ):
         presupuesto=validar_presupuesto(presupuesto)
         club=Club(nombre,id,liga,presupuesto)    
         for i in range(len(Liga.lista_ligas)):
-            if club.liga == Liga.lista_ligas[i][0]:
+            if club.liga == Liga.lista_ligas[i].nombre:
                 Liga.lista_ligas[i].lista_clubes.append(club)
                 Liga.lista_ligas[i].cant_clubes+=1
 
@@ -151,8 +151,15 @@ while(menu!=10 ):
         peso = validar_peso(peso)
         persona=Persona(nombre,apellido,dni,edad,nacionalidad,estatura,peso)
         valor = int(input("Ingrese el valor del jugador: "))
-        valor = 
- 
+        valor = validar_valor(valor)
+        for i in range(len(Club.lista_clubes)):
+            print(Club.lista_clubes[i].id, Club.lista_clubes[i].nombre)
+        idclub = input("Ingrese el id del club del jugador de los que estan disponibles: ")
+        while idclub not in Liga.lista_id_clubes:
+            idclub=str(input("Ese club no existe. Elija club del jugador de los que estan disponibles: "))
+        for i in range(len(Club.lista_clubes)):
+            if idclub == Club.lista_clubes[i].id:
+                club == Club.lista_clubes[i].nombre
 
     elif guardo==4:
         pass
