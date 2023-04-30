@@ -4,12 +4,20 @@ import Arquero
 import JugadorDeCampo
 import Club
 import Liga
-
+import datetime
+import math
 
 def validar_longitud_dni(dni):
     while dni <= 10000000 or dni >= 99999999:
         dni = int(input("Ingrese nuevamente un DNI valido: "))
     return dni
+
+def calcular_edad(fecha_nacimiento):
+    fecha_nacimiento = datetime.datetime.strptime(fecha_nacimiento, "%d/%m/%Y").date()
+    fecha_actual = datetime.date.today()
+    diferencia = fecha_actual - fecha_nacimiento
+    edad = math.floor(diferencia.days / 365)
+    return edad
 
 def validar_estatura(estatura):
     while estatura <= 1 or estatura >= 2.5:
@@ -91,25 +99,52 @@ while(menu!=10 ):
     guardo=menu()
     if guardo==1:
         nombre=str(input("Ingrese el nombre de la liga: "))
+        while nombre in Liga.lista_nombre_ligas:   #no puede haber dos ligas con el mismo nombre ni dos ligas por pais
+            nombre=str(input("El nombre de liga ya existe. Ingrese el nombre de la liga: "))
         pais=str(input("Ingrese el pais de la liga: "))
+        while pais in Liga.lista_paises_ligas:
+            pais=str(input("El pais de liga ya esta tomado. Ingrese el pais de la liga: "))
         liga=Liga(nombre,pais)
+        Liga.lista_ligas.append(liga)
+        Liga.lista_nombre_ligas.append(liga.nombre)
+        Liga.lista_paises_ligas.append(liga.pais)
 
     elif guardo==2:
         nombre=str(input("Ingrese el nombre del club: "))
         id=int(input("Ingrese el ID del club: "))
-        liga=str(input("Ingrese la liga del club: "))
+        while id in Club.lista_id_clubes: 
+            id=int(input("El id ya existe. Ingrese el ID del club: "))
+        for i in range(len(Liga.lista_nombre_ligas)):
+            print(Liga.lista_nombre_liga[i])
+        liga=str(input("Elija la liga del club de las que estan disponibles: "))
+        while liga not in Liga.lista_nombre_ligas:
+            liga=str(input("Esa liga no existe. Elija la liga del club de las que estan disponibles: "))
         presupuesto=str(input("Ingrese el presupuesto del club: "))
         presupuesto=validar_presupuesto(presupuesto)
-        club1=Club(nombre,id,liga,presupuesto)
-        Club.lista_clubes= club1.verificarid_club(Club.lista_clubes)
-        
+        club=Club(nombre,id,liga,presupuesto)    
+        for i in range(len(Liga.lista_ligas)):
+            if club.liga == Liga.lista_ligas[i][0]:
+                Liga.lista_ligas[i].lista_clubes.append(club)
+                Liga.lista_ligas[i].cant_clubes+=1
 
     elif guardo==3:
         nombre=str(input("Ingrese el nombre del jugador: "))
         apellido=str(input("Ingrese el apellido del jugador: "))
         dni=int(input("Ingrese el dni del jugador: "))
         dni=validar_longitud_dni(dni)
+        while dni in Persona.lista_dni_personas: 
+            dni=int(input("El dni ya existe. Ingrese el dni del jugador: "))
+            dni=validar_longitud_dni(dni)
+        fecha_nacimiento = input("Ingrese la fecha de nacimiento del jugador en formato dd/mm/aaaa: ") 
+        edad = calcular_edad(fecha_nacimiento) # falta validar que ingrese bien la fecha de nacimiento
+        nacionalidad = input("Ingrese la nacionalidad del jugador: ")
+        estatura = int(input("Ingrese la estatura en metros del jugador: "))
+        estatura = validar_estatura(estatura)
+        peso = float(input("Ingrese el peso en kilogramos del jugador: "))
+        peso = validar_peso(peso)
+        persona=Persona(nombre,apellido,dni,edad,nacionalidad,estatura,peso)
 
+ 
 
     elif guardo==4:
         pass
@@ -129,8 +164,8 @@ while(menu!=10 ):
     elif guardo==9:
         pass
 
-    elif guardo<1 or guardo>11:
+    elif guardo<1 or guardo>10:
         print("Error al elegir accion. Intente de nuevo.")
         guardo=menu()
-    elif guardo==1:
+    elif guardo==10:
         break
