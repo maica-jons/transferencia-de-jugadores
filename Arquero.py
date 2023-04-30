@@ -15,10 +15,10 @@ class Arquero(Jugador):
     def RecibirGol(self):
         self.goles_recibidos += 1
 
-    def validar_vallas_invictas(self):
-        while self.vallas_invictas < 0:
-            self.vallas_invictas = int(input("Ingrese un numero valido de vallas invictas: "))
-        return self.vallas_invictas
+    # def validar_vallas_invictas(self):
+    #     while self.vallas_invictas < 0:
+    #         self.vallas_invictas = int(input("Ingrese un numero valido de vallas invictas: "))
+    #     return self.vallas_invictas
     
     def validar_goles_recibidos(self):
         while self.goles_recibidos < 0:

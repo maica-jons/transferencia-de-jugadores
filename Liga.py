@@ -1,5 +1,6 @@
 from Club import *
 from JugadorDeCampo import *
+from Arquero import *
 
 class Liga():
     lista_ligas = [] #total de ligas
@@ -18,7 +19,7 @@ class Liga():
 
     def jugar_partido(self,club1,club2):
         goles = input("ingrese s si HUBO goles y n si NO HUBO goles: ")
-        while goles != "s" or goles != "n":
+        while goles != "s" and goles != "n":
             goles = input("no ingreso una opcion valida. ingrese s si HUBO goles y n si NO HUBO goles: ")
         while goles == "s":
             que_club = input("que club hizo gol? para titular ingrese t, para visitante ingrese v: ")
@@ -28,15 +29,49 @@ class Liga():
                     if goleador == club1.lista_jugadores[i][0]:
                         goleador = club1.lista_jugadores[i]
                         goleador = JugadorDeCampo.HacerGol()
-
+                        arquero = club2.lista_jugadores[i][posicion=arq]
+                        arquero = Arquero.RecibirGol()
+                    else:
+                        print("el jugador ingresado no existe.")
+            else: #club visitante
+                goleador = input("ingrese el nombre del jugador que metio gol: ")
+                for i in range(len(club2.lista_jugadores)):
+                    if goleador == club2.lista_jugadores[i][0]:
+                        goleador = club2.lista_jugadores[i]
+                        goleador = JugadorDeCampo.HacerGol()
+                        arquero = club1.lista_jugadores[i][posicion=arq]
+                        arquero = Arquero.RecibirGol()
+                    else:
+                        print("el jugador ingresado no existe.")
+            assist = input("el gol tuvo asistencia? ingrese s o n: ")
+            while assist != "s" and assist != "n":
+                assist = input("ingrese una respuesta válida. si el gol tuvo asistencia ingrese s, si no ingrese n: ")
+            while assist == "s":
+                asistente = input("ingrese el nombre del jugador que realizo la asistencia: ")
+                for i in range(len(que_club.lista_jugadores)):
+                    if asistente == que_club.lista_jugadores[i][0]:
+                        asistente = que_club.lista_jugadores[i]
+                        asistente = 
+            goles = input("si hubo mas goles, ingrese s, si no, ingrese n: ")
+            while goles != "s" or goles != "n":
+                goles = input("no ingreso una opcion valida. ingrese s si HUBO goles y n si NO HUBO goles: ")
         
 
-    hubo goels
-        quien
-        ingresarlo
-    sumarle +1
+            
+#preguntar si hubo asistencia y si hubo ingresarsela al jugador que la hizo
+
+
     while hasta que sea no
     asistencia
     tarjetas
     cont de goles 0
     valla invicta si termina en 0
+    # hubo goels
+    #     quien
+    #     ingresarlo
+    # sumarle +1
+    # while hasta que sea no
+    # asistencia
+    # tarjetas
+    # cont de goles 0
+    # valla invicta si termina en 0

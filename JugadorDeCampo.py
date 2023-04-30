@@ -12,10 +12,10 @@ class JugadorDeCampo(Jugador):
     def DarAsistencia(self):
         self.asistencia += 1
 
-    def validar_goles(self):
-        while self.goles < 0:
-            self.goles = int(input("Ingrese nuevamente una cantidad de goles valida: "))
-        return self.goles
+    # def validar_goles(self):
+    #     while self.goles < 0:
+    #         self.goles = int(input("Ingrese nuevamente una cantidad de goles valida: "))
+    #     return self.goles
     
     def validar_asistencia(self):
         while self.asistencia < 0:
