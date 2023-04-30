@@ -160,6 +160,13 @@ while(menu!=10 ):
         for i in range(len(Club.lista_clubes)):
             if idclub == Club.lista_clubes[i].id:
                 club == Club.lista_clubes[i].nombre
+        estado= input("Ingrese el estado fisico del jugador ('Activo' o 'Lesionado'): ")
+        estado = validar_estado(estado)
+        cantidad_partidos= int(input("Ingrese la cantidad de partidos jugados del jugador: "))
+        cantidad_partidos= validar_cantidad_partidos(cantidad_partidos)
+        cantidad_tarjetas= int(input("Ingrese la cantidad de tarjetas que recibio el jugador: "))
+        cantidad_tarjetas= validar_cantidad_tarjetas(cantidad_tarjetas)
+        jugador=Jugador(persona,valor,club,estado,cantidad_partidos,cantidad_tarjetas)
 
     elif guardo==4:
         pass
