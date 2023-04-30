@@ -44,5 +44,3 @@ class Club():
             self.valor_del_club += jugador.valor
         else:
             print("No hay presupuesto suficiente para comprar ese jugador.")
-    
-
