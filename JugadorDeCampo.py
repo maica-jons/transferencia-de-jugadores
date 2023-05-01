@@ -6,10 +6,10 @@ class JugadorDeCampo(Jugador):
         self.goles = goles
         self.asistencia = asistencia
 
-    def HacerGol(self):
+    def hacer_gol(self):
         self.goles += 1
         
-    def DarAsistencia(self):
+    def dar_asistencia(self):
         self.asistencia += 1
     
     def __str__(self):

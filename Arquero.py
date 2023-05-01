@@ -6,10 +6,10 @@ class Arquero(Jugador):
         self.vallas_invictas = vallas_invictas
         self.goles_recibidos = goles_recibidos
 
-    def TenerVallaInvicta(self):
+    def tener_valla_invicta(self):
         self.vallas_invictas += 1
 
-    def RecibirGol(self):
+    def recibir_gol(self):
         self.goles_recibidos += 1
     
     def __str__(self):

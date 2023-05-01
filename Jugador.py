@@ -15,7 +15,7 @@ class Jugador(Persona):
         self.cantidad_partidos = cantidad_partidos
         self.cantidad_tarjetas = cantidad_tarjetas
 
-    def RetirarJugador(self):
+    def retirar_jugador(self):
         pass
 
     def modificar_valor(self, nuevo):
