@@ -7,7 +7,7 @@ class Liga():
     lista_nombre_ligas = []
     lista_paises_ligas = [] #cada pais tiene maximo 1 liga (si creo una liga en un pais que ya tiene, no me deja)
 
-    def __init__(self,nombre,pais):
+    def __init__(self, nombre, pais):
         if nombre in Liga.lista_ligas:
             raise ValueError("La liga ya fue creada.")
         else:
@@ -17,7 +17,7 @@ class Liga():
         self.lista_clubes = [] #clubes de cada liga
         self.cant_clubes = 0
 
-    def jugar_partido(self,club1,club2):
+    def jugar_partido(self, club1, club2):
         goles = input("ingrese s si HUBO goles y n si NO HUBO goles: ")
         while goles != "s" and goles != "n":
             goles = input("no ingreso una opcion valida. ingrese s si HUBO goles y n si NO HUBO goles: ")
@@ -57,7 +57,7 @@ class Liga():
                 goles = input("no ingreso una opcion valida. ingrese s si HUBO goles y n si NO HUBO goles: ")
         
     def __str__(self):
-        return("La liga del país '{}' se llama '{}' y está conformada por los siguientes {} clubes: {}").format(self.pais,self.nombre,self.cant_clubes,self.lista_clubes)
+        return("La liga del país '{}' se llama '{}' y está conformada por los siguientes {} clubes: {}").format(self.pais, self.nombre, self.cant_clubes, self.lista_clubes)
 
             
 #preguntar si hubo asistencia y si hubo ingresarsela al jugador que la hizo
