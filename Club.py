@@ -1,5 +1,5 @@
 from Jugador import Jugador
-import Liga
+from Liga import Liga
 
 class Club():
     lista_clubes = []

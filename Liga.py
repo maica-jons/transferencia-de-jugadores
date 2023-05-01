@@ -1,6 +1,7 @@
-from Club import *
-from JugadorDeCampo import *
-from Arquero import *
+from Club import Club
+from JugadorDeCampo import JugadorDeCampo
+from Arquero import Arquero
+
 
 class Liga():
     lista_ligas = [] #total de ligas
