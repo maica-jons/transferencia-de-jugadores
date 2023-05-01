@@ -17,9 +17,8 @@ class Liga():
         self.lista_clubes = [] #clubes de cada liga
         self.cant_clubes = 0
     
-    def __str__(self) -> str:
-        cadena = "la liga del país '{}' se llama '{}' y está conformada por los siguientes {} clubes: {}".format(self.pais,self.nombre,self.cant_clubes,self.lista_clubes)
-        return cadena
+    def __str__(self):
+        return("La liga del país '{}' se llama '{}' y está conformada por los siguientes {} clubes: {}").format(self.pais,self.nombre,self.cant_clubes,self.lista_clubes)
 
 
     def jugar_partido(self,club1,club2):
