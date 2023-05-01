@@ -129,7 +129,7 @@ def menu():
 1- Agregar Liga
 2- Agregar Club
 3- Agregar Jugador
-4- Modificar Club (comprar jugador, cambiar presupuesto)
+4- Modificar Club 
 5- Modificar Jugador (retirar jugador, cambiar estado, cambiar valor)
 6- Jugar partido
 7- Ver Liga

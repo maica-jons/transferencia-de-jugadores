@@ -18,9 +18,9 @@ class Jugador(Persona):
     def retirar_jugador(self):
         pass
 
-    def modificar_valor(self, nuevo):
-        self.valor = nuevo
-        return self.valor
+    def modificar_valor(self, monto):
+        self.valor += monto
+        print("El nuevo valor del jugador es", self.valor)
         
     def modificar_estado(self, nuevo):
         self.estado = nuevo
