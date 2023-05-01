@@ -1,4 +1,3 @@
-from Jugador import Jugador
 import Liga
 
 class Club():
