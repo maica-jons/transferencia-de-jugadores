@@ -19,6 +19,9 @@ class Club():
             jugador.club = self.nombre
             self.presupuesto -= jugador.valor
             self.valor_del_club += jugador.valor
+            club_vendedor.presupuesto += jugador.valor
+            club_vendedor.valor_del_club -= jugador.valor
+            print("Jugador comprado correctamente.")
         else:
             print("No hay presupuesto suficiente para comprar ese jugador.")
 
