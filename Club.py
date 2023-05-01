@@ -27,4 +27,4 @@ class Club():
         return self.presupuesto
     
     def __str__(self):
-        return("Nombre del club: {}, id del club: {}, nombre de la liga a la que pertenece: {}, presupuesto del club: {}, valor del club: {} y lista de los jugadores que tiene el club:").format(self.nombre,self.id,self.liga,self.presupuesto,self.valor_del_club,self.lista_clubes)
+        return("El nombre del club es {}, cuyo ID es {}. El nombre de la liga a la que pertenece es {}, tiene {} de presupuesto y {} de valor. La lista de los jugadores que tiene el club es {}").format(self.nombre,self.id,self.liga,self.presupuesto,self.valor_del_club,self.lista_jugadores)
