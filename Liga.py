@@ -16,7 +16,11 @@ class Liga():
         self.pais = pais
         self.lista_clubes = [] #clubes de cada liga
         self.cant_clubes = 0
-        cant_partidos_liga = 0
+    
+    def __str__(self) -> str:
+        cadena = "la liga del país '{}' se llama '{}' y está conformada por los siguientes {} clubes: {}".format(self.pais,self.nombre,self.cant_clubes,self.lista_clubes)
+        return cadena
+
 
     def jugar_partido(self,club1,club2):
         goles = input("ingrese s si HUBO goles y n si NO HUBO goles: ")
