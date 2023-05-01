@@ -1,4 +1,4 @@
-import Jugador
+from Jugador import Jugador
 
 class Arquero(Jugador):
     def __init__(self, nombre, apellido, dni, fechanacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, vallas_invictas, goles_recibidos):

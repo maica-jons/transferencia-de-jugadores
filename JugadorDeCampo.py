@@ -1,4 +1,4 @@
-import Jugador
+from Jugador import Jugador
 
 class JugadorDeCampo(Jugador):
     def __init__(self, nombre, apellido, dni, fecha_nacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, goles, asistencia):
