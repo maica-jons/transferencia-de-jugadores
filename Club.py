@@ -25,9 +25,9 @@ class Club():
         else:
             print("No hay presupuesto suficiente para comprar ese jugador.")
 
-    def modificar_presupuesto(self, nuevo):
-        self.presupuesto = nuevo
-        return self.presupuesto
+    def modificar_presupuesto(self, monto):
+        self.presupuesto += monto
+        print("El nuevo presupuesto del club es", self.presupuesto)
     
     def __str__(self):
         return("El nombre del club es {}, cuyo ID es {}. El nombre de la liga a la que pertenece es {}, tiene {} de presupuesto y {} de valor. La lista de los jugadores que tiene el club es {}").format(self.nombre, self.id, self.liga, self.presupuesto, self.valor_del_club, self.lista_jugadores)

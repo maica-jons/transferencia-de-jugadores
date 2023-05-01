@@ -93,30 +93,36 @@ def elegir_liga():
         liga_nombre=str(input("Esa liga no existe. Elija la liga de las que estan disponibles: "))
     for i in range(len(Liga.lista_ligas)):
         if liga_nombre == Liga.lista_ligas[i].nombre:
-            liga == Liga.lista_ligas[i]
+            liga = Liga.lista_ligas[i]
     return liga
     
 def elegir_club(liga):
     for i in range(len(liga.lista_clubes)):
         print(liga.lista_clubes[i].id, liga.lista_clubes[i].nombre)
-    idclub = input("Ingrese el id del club  de los que estan disponibles: ")
-    while idclub not in Club.lista_id_clubes:
-        idclub=str(input("Ese club no existe. Elija el id del club de los que estan disponibles: "))
+    esta='no'
+    while esta=="no":
+        idclub = input("Ingrese el id del club  de los que estan disponibles: ")
+        for i in liga.lista_clubes:
+            if idclub == liga.lista_clubes[i].id:
+                esta="si"
     for i in range(len(liga.lista_clubes)):
         if idclub == liga.lista_clubes[i].id:
-            club == liga.lista_clubes[i]
+            club = liga.lista_clubes[i]
     return club
 
 def elegir_jugador(club):
     for i in range(len(club.lista_jugadores)):
-        print(club.lista_jugadores[i].dni, club.lista_jugadores[i].nombre, club.lista_jugadores[i].apellido)
-    dni = input("Ingrese el dni del jugador de los que estan disponibles: ")
-    while dni not in Persona.lista_dni_personas:
-        dni=str(input("Ese jugador no existe. Elija el dni del club de los que estan disponibles: "))
-    for i in range(len(liga.lista_clubes)):
-        if idclub == liga.lista_clubes[i].id:
-            club == liga.lista_clubes[i]
-    return club
+        print(club.lista_jugadores[i].dni, club.lista_jugadores[i].nombre, club.lista_jugadores[i].apellido)   
+    esta='no'
+    while esta=="no":
+        dni = input("Ingrese el dni del jugador de los que estan disponibles: ")
+        for i in club.lista_jugadores:
+            if dni == club.lista_jugadores[i].dni:
+                esta="si"
+    for i in range(len(club.lista_jugadores)):
+        if dni == club.lista_jugadores[i].dni:
+            jugador = club.lista_jugadores[i]
+    return jugador
 
 def menu():
     menu=int(input("""Elija que accion desea
@@ -228,7 +234,13 @@ while(menu!=10 ):
             print("Ahora hay que elegir el jugador a comprar y su club.")
             liga_vendedor = elegir_liga()
             club_vendedor = elegir_club(liga_vendedor)
-            jugador = 
+            jugador = elegir_jugador(club_vendedor)
+            club_comprador.comprar_jugador(club_vendedor,jugador)
+        else:
+            liga = elegir_liga()
+            club = elegir_club(liga)
+            monto = int(input("Ingrese el monto que se le agregue o reste al presupuesto (si es negativo ingrese un '-' antes del numero): "))
+            club.modificar_presupuesto(monto)
 
 
 
@@ -241,13 +253,19 @@ while(menu!=10 ):
         pass
 
     elif guardo==7:
-        pass
+        liga = elegir_liga()
+        print(liga)
 
     elif guardo==8:
-        pass
+        liga = elegir_liga()
+        club = elegir_club(liga)
+        print(club)
 
     elif guardo==9:
-        pass
+        liga = elegir_liga()
+        club = elegir_club(liga)
+        jugador = elegir_jugador(club)
+        print(jugador)
 
     elif guardo<1 or guardo>10:
         print("Error al elegir accion. Intente de nuevo.")
