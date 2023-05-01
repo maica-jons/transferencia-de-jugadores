@@ -5,7 +5,7 @@ import Club
 
 class Jugador(Persona):
 
-    # lista_jugadores = []
+    #lista_jugadores = []
 
     def __init__(self, nombre, apellido, dni, fecha_nacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, cantidad_tarjetas):
         Persona.__init__(self, nombre, apellido, dni, fecha_nacimiento, nacionalidad, estatura, peso)
