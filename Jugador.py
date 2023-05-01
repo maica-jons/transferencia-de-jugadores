@@ -16,7 +16,7 @@ class Jugador(Persona):
         self.cantidad_partidos = cantidad_partidos
         self.cantidad_tarjetas = cantidad_tarjetas
 
-    
+
     def validar_club(self):
         while self.club in Club.lista_clubes:
             self.club = input("Ingrese un club que se encuentre creado: ")
