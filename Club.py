@@ -38,3 +38,7 @@ class Club():
 
     def __str__(self):
         return("Nombre del club: {}, id del club: {}, nombre de la liga a la que pertenece: {}, presupuesto del club: {}, valor del club: {} y lista de los jugadores que tiene el club:").format(self.nombre,self.id,self.liga,self.presupuesto,self.valor_del_club,self.lista_clubes)
+    
+    def modificar_presupuesto(self, nuevo):
+        self.presupuesto = nuevo
+        return self.presupuesto
