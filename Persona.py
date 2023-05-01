@@ -14,4 +14,3 @@ class Persona():
         self.nacionalidad = nacionalidad
         self.estatura = estatura
         self.peso = peso
-
