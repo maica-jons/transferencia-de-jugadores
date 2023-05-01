@@ -11,16 +11,6 @@ class Arquero(Jugador):
 
     def RecibirGol(self):
         self.goles_recibidos += 1
-
-    # def validar_vallas_invictas(self):
-    #     while self.vallas_invictas < 0:
-    #         self.vallas_invictas = int(input("Ingrese un numero valido de vallas invictas: "))
-    #     return self.vallas_invictas
-    
-    def validar_goles_recibidos(self):
-        while self.goles_recibidos < 0:
-            self.goles_recibidos = int(input("Ingrese una cantidad valida de goles recibidos: "))
-        return self.goles_recibidos
     
     def __str__(self):
         return("El nombre del jugador es {} {}, cuyo DNI es {}, nacio en la fecha {}, y cuya nacionalidad es {}. Su estatura es {} metros, su peso es {} kg. Su valor es {}, pertenece al club {}. Su estado actual es {}, tiene {} partidos jugados, tiene {} vallas invictas, y tiene {} goles recibidos. ").format(self.nombre, self.apellido, self.dni, self.fecha_nacimiento, self.nacionalidad, self.estatura, self.peso, self.valor, self.club, self.estado, self.cantidad_partidos, self.vallas_invictas, self.goles_recibidos)

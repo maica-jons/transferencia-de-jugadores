@@ -184,7 +184,17 @@ while(menu!=10 ):
             jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, goles, asistencias)
 
     elif guardo==4:
-        pass
+        sub_menu=int(input("""Elija que accion desea:
+        1- Comprar Jugador
+        2- Cambiar Presupuesto"""))
+        while sub_menu != 1 and sub_menu != 2:
+            sub_menu=int(input("""Elija que accion desea:
+        1- Comprar Jugador
+        2- Cambiar Presupuesto"""))
+        if sub_menu == 1: 
+            for i in range(len(Liga.lista_nombre_ligas)):
+                print(Liga.lista_nombre_liga[i])
+            liga1=input("Ingrese el nombre de la liga del club que va a comprar: ")
 
     elif guardo==5:
         pass

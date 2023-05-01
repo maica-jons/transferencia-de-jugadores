@@ -17,26 +17,8 @@ class Jugador(Persona):
         self.cantidad_tarjetas = cantidad_tarjetas
 
 
-    def validar_club(self):
-        while self.club in Club.lista_clubes:
-            self.club = input("Ingrese un club que se encuentre creado: ")
-        return self.club
-        
-
-
-    def CrearJugador(self): #todo esto dentro del main. usuario solo interactua con el main. 
-        nombre = input("Ingrese el nombre del jugador: ")
-        apellido = input("Ingrese el apellido del jugador: ")
-        fechanacimiento = input("Ingrese la fecha de nacimiento del jugador en formato dd/mm/aaaa: ")  #ver si hay que usar datetime
-        nacionalidad = input("Ingrese la nacionalidad del jugador: ")
-        estatura = int(input("Ingrese la estatura en metros del jugador: "))
-        peso = float(input("Ingrese el peso en kilogramos del jugador: "))
-        valor = float(input("Ingrese el valor del jugador: "))
-        club = input("Ingrese el club al que pertenece el jugador: ")
-        estado = input("Ingrese el estado del jugador (si esta lesionado o no): ")
-
     def RetirarJugador(self):
         pass
 
-    def ModificarJugador(self):
+    def CambiarValor(self):
         pass
