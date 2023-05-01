@@ -6,9 +6,6 @@ class Arquero(Jugador):
         self.vallas_invictas = vallas_invictas
         self.goles_recibidos = goles_recibidos
 
-    def AtajarPenal(self):
-        self.penales_atajados += 1
-        
     def TenerVallaInvicta(self):
         self.vallas_invictas += 1
 
