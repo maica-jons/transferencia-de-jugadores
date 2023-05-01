@@ -88,9 +88,9 @@ def validar_valor_club(valor_del_club):
 def elegir_liga():
     for i in range(len(Liga.lista_nombre_ligas)):
         print(Liga.lista_nombre_ligas[i])
-    liga_nombre=str(input("Elija la liga del club de las que estan disponibles: "))
+    liga_nombre=str(input("Elija la liga de las que estan disponibles: "))
     while liga not in Liga.lista_nombre_ligas:
-        liga_nombre=str(input("Esa liga no existe. Elija la liga del club de las que estan disponibles: "))
+        liga_nombre=str(input("Esa liga no existe. Elija la liga de las que estan disponibles: "))
     for i in range(len(Liga.lista_ligas)):
         if liga_nombre == Liga.lista_ligas[i].nombre:
             liga == Liga.lista_ligas[i]
@@ -99,9 +99,20 @@ def elegir_liga():
 def elegir_club(liga):
     for i in range(len(liga.lista_clubes)):
         print(liga.lista_clubes[i].id, liga.lista_clubes[i].nombre)
-    idclub = input("Ingrese el id del club del jugador de los que estan disponibles: ")
+    idclub = input("Ingrese el id del club  de los que estan disponibles: ")
     while idclub not in Club.lista_id_clubes:
-        idclub=str(input("Ese club no existe. Elija club del jugador de los que estan disponibles: "))
+        idclub=str(input("Ese club no existe. Elija el id del club de los que estan disponibles: "))
+    for i in range(len(liga.lista_clubes)):
+        if idclub == liga.lista_clubes[i].id:
+            club == liga.lista_clubes[i]
+    return club
+
+def elegir_jugador(club):
+    for i in range(len(club.lista_jugadores)):
+        print(club.lista_jugadores[i].dni, club.lista_jugadores[i].nombre, club.lista_jugadores[i].apellido)
+    dni = input("Ingrese el dni del jugador de los que estan disponibles: ")
+    while dni not in Persona.lista_dni_personas:
+        dni=str(input("Ese jugador no existe. Elija el dni del club de los que estan disponibles: "))
     for i in range(len(liga.lista_clubes)):
         if idclub == liga.lista_clubes[i].id:
             club == liga.lista_clubes[i]
@@ -211,9 +222,14 @@ while(menu!=10 ):
         1- Comprar Jugador
         2- Cambiar Presupuesto"""))
         if sub_menu == 1: 
-            liga = elegir_liga()
-            club = elegir_club(liga)
-            
+            print("Primero hay que elegir el club que va a comprar.")
+            liga_comprador = elegir_liga()
+            club_comprador = elegir_club(liga_comprador)
+            print("Ahora hay que elegir el jugador a comprar y su club.")
+            liga_vendedor = elegir_liga()
+            club_vendedor = elegir_club(liga_vendedor)
+            jugador = 
+
 
 
 
