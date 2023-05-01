@@ -1,9 +1,9 @@
-import Persona
-import Jugador
-import Arquero
-import JugadorDeCampo
-import Club
-import Liga
+from Persona import Persona
+from Jugador import Jugador
+from Arquero import Arquero
+from JugadorDeCampo import JugadorDeCampo
+from Club import Club
+from Liga import Liga
 import datetime
 import math
 
@@ -149,7 +149,7 @@ while(menu!=10 ):
         estatura = validar_estatura(estatura)
         peso = float(input("Ingrese el peso en kilogramos del jugador: "))
         peso = validar_peso(peso)
-        persona=Persona(nombre,apellido,dni,edad,nacionalidad,estatura,peso)
+        # persona=Persona(nombre,apellido,dni,edad,nacionalidad,estatura,peso)
         valor = int(input("Ingrese el valor del jugador: "))
         valor = validar_valor(valor)
         for i in range(len(Club.lista_clubes)):
@@ -166,7 +166,22 @@ while(menu!=10 ):
         cantidad_partidos= validar_cantidad_partidos(cantidad_partidos)
         cantidad_tarjetas= int(input("Ingrese la cantidad de tarjetas que recibio el jugador: "))
         cantidad_tarjetas= validar_cantidad_tarjetas(cantidad_tarjetas)
-        jugador=Jugador(persona,valor,club,estado,cantidad_partidos,cantidad_tarjetas)
+        # jugador=Jugador(persona,valor,club,estado,cantidad_partidos,cantidad_tarjetas)
+        posicion=int(input("Ingrese solamente el numero de la posicion del jugador (1. Arquero o 2. Jugador de campo): "))
+        while posicion != 1 and posicion != 2:
+            posicion=int(input("Ingrese solamente el numero de la posicion del jugador (1. Arquero o 2. Jugador de campo): "))
+        if posicion == 1:
+            vallas_invictas = int(input("Ingrese la cantidad de vallas invictas que tiene el arquero: "))
+            vallas_invictas = validar_vallas_invictas(vallas_invictas)
+            goles_recibidos = int(input("Ingrese la cantidad de goles que recibio el arquero: "))
+            goles_recibidos = validar_goles_recibidos(goles_recibidos)
+            arquero=Arquero(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, vallas_invictas, goles_recibidos)
+        else: 
+            goles= int(input("Ingrese la cantidad de goles que marco el jugador: "))
+            goles = validar_goles(goles)
+            asistencias = int(input("Ingrese la cantidad de asistencias que hizo el jugador: "))
+            asistencias = validar_asistencia(asistencias)
+            jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, goles, asistencias)
 
     elif guardo==4:
         pass
