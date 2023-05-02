@@ -103,7 +103,7 @@ class Club():
                     esta_j='si'
                 else:
                     print("el jugador ingresado no existe.")
-        return goleador
+        return jugador
 
     def __str__(self):
         return("El nombre del club es {}, cuyo ID es {}. El nombre de la liga a la que pertenece es {}, tiene {} de presupuesto y {} de valor. La lista de los jugadores que tiene el club es {}").format(self.nombre, self.id, self.liga, self.presupuesto, self.valor_del_club, self.lista_jugadores)
