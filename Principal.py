@@ -207,17 +207,19 @@ while(menu!=10 ):
         while posicion != 1 and posicion != 2:
             posicion=int(input("Ingrese solamente el numero de la posicion del jugador (1. Arquero o 2. Jugador de campo): "))
         if posicion == 1:
+            posicion = "Arquero"
             vallas_invictas = int(input("Ingrese la cantidad de vallas invictas que tiene el arquero: "))
             vallas_invictas = validar_vallas_invictas(vallas_invictas)
             goles_recibidos = int(input("Ingrese la cantidad de goles que recibio el arquero: "))
             goles_recibidos = validar_goles_recibidos(goles_recibidos)
-            arquero=Arquero(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, vallas_invictas, goles_recibidos)
+            arquero=Arquero(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, posicion, vallas_invictas, goles_recibidos)
         else: 
+            posicion = "Jugador de campo"
             goles= int(input("Ingrese la cantidad de goles que marco el jugador: "))
             goles = validar_goles(goles)
             asistencias = int(input("Ingrese la cantidad de asistencias que hizo el jugador: "))
             asistencias = validar_asistencia(asistencias)
-            jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, goles, asistencias)
+            jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, posicion, goles, asistencias)
 
     elif guardo==4:
         sub_menu=int(input("""Elija que accion desea:

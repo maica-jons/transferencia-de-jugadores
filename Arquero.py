@@ -1,8 +1,8 @@
 from Jugador import Jugador
 
 class Arquero(Jugador):
-    def __init__(self, nombre, apellido, dni, fechanacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, vallas_invictas, goles_recibidos):
-        Jugador.__init__(self, nombre, apellido, dni, fechanacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos)
+    def __init__(self, nombre, apellido, dni, fechanacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, cantidad_tarjetas, posicion, vallas_invictas, goles_recibidos):
+        Jugador.__init__(self, nombre, apellido, dni, fechanacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, cantidad_tarjetas, posicion)
         self.vallas_invictas = vallas_invictas
         self.goles_recibidos = goles_recibidos
 
