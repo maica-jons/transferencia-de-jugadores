@@ -1,3 +1,10 @@
+from Persona import Persona
+from Jugador import Jugador
+from Arquero import Arquero
+from JugadorDeCampo import JugadorDeCampo
+from Club import Club
+from Liga import Liga
+
 
 def crear_matriz(que_matriz_es):
      atributos = int(input("ingresa cantidad de atributos: "))
@@ -18,8 +25,18 @@ def crear_matriz(que_matriz_es):
 matriz_ligas = crear_matriz("LIGAS")
 print(matriz_ligas)
 
+def guardar_archivos():
+     with open('./ligas.csv','w') as archivo_ligas:
+          with open('./clubes.csv','w') as archivo_clubes:
+               with open('./arqueros.csv','w') as archivo_arqueros:
+                    with open('./jugadorescampo.csv','w') as archivo_jugadorescampo:
+                         for liga in Liga.lista_ligas:
+                              archivo_ligas.writerow(liga.nombre + ',' + liga.pais)
 
+                         for club in Club.lista_clubes:
+                              archivo_clubes.writerow(club.nombre + ',' + club.id + ',' + club.liga + ',' + club.presupuesto + ',' + club.valor_del_club)
 
+                         for arquero in 
 
 
 def guardarEnArchivo(self,archivo_cuentas,archivo_depositos,archivo_retiros):

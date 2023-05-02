@@ -1,6 +1,7 @@
 from Jugador import Jugador
 
 class JugadorDeCampo(Jugador):
+    lista_jugadorescampo = []
     def __init__(self, nombre, apellido, dni, fecha_nacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, cantidad_tarjetas, posicion, goles, asistencia):
         Jugador.__init__(self, nombre, apellido, dni, fecha_nacimiento, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, cantidad_tarjetas, posicion)
         self.goles = goles

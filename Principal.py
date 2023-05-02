@@ -158,6 +158,7 @@ while(menu!=10 ):
         id=int(input("Ingrese el ID del club: "))
         while id in Club.lista_id_clubes: 
             id=int(input("El id ya existe. Ingrese el ID del club: "))
+        Club.lista_id_clubes.append(id)
         for i in range(len(Liga.lista_nombre_ligas)):
             print(Liga.lista_nombre_ligas[i])
         liga=str(input("Elija la liga del club de las que estan disponibles: "))
@@ -166,6 +167,7 @@ while(menu!=10 ):
         presupuesto=str(input("Ingrese el presupuesto del club: "))
         presupuesto=validar_presupuesto(presupuesto)
         club=Club(nombre,id,liga,presupuesto)    
+        Club.lista_clubes.append(club)
         for i in range(len(Liga.lista_ligas)):
             if club.liga == Liga.lista_ligas[i].nombre:
                 Liga.lista_ligas[i].lista_clubes.append(club)
@@ -179,6 +181,7 @@ while(menu!=10 ):
         while dni in Persona.lista_dni_personas: 
             dni=int(input("El dni ya existe. Ingrese el dni del jugador: "))
             dni=validar_longitud_dni(dni)
+        Persona.lista_dni_personas.append(dni)
         fecha_nacimiento = input("Ingrese la fecha de nacimiento del jugador en formato dd/mm/aaaa: ")
         fecha_nacimiento = validar_fecha_nacimiento(fecha_nacimiento) 
         edad = calcular_edad(fecha_nacimiento) # falta validar que ingrese bien la fecha de nacimiento
@@ -213,6 +216,7 @@ while(menu!=10 ):
             goles_recibidos = int(input("Ingrese la cantidad de goles que recibio el arquero: "))
             goles_recibidos = validar_goles_recibidos(goles_recibidos)
             arquero=Arquero(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, posicion, vallas_invictas, goles_recibidos)
+            Arquero.lista_arqueros.append(arquero)
         else: 
             posicion = "Jugador de campo"
             goles= int(input("Ingrese la cantidad de goles que marco el jugador: "))
@@ -220,6 +224,7 @@ while(menu!=10 ):
             asistencias = int(input("Ingrese la cantidad de asistencias que hizo el jugador: "))
             asistencias = validar_asistencia(asistencias)
             jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, posicion, goles, asistencias)
+            JugadorDeCampo.lista_jugadorescampo.append(jugador_de_campo)
 
     elif guardo==4:
         sub_menu=int(input("""Elija que accion desea:
