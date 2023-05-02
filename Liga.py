@@ -16,7 +16,7 @@ class Liga():
         self.nombre = nombre
         self.pais = pais
         self.lista_clubes = [] #clubes de cada liga
-        self.cant_clubes = 0
+        self.cant_clubes = 0 #Ver si lo mantenemos porque es medio innecesario
 
     def jugar_partido(self, club1, club2):
         goles = input("ingrese s si HUBO goles y n si NO HUBO goles: ")
