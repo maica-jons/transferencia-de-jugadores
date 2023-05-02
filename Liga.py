@@ -18,6 +18,8 @@ class Liga():
         self.lista_clubes = [] #clubes de cada liga
         self.cant_clubes = 0 #Ver si lo mantenemos porque es medio innecesario
 
+
+
     def jugar_partido(self, club1, club2):
         goles = input("ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
         while goles != "s" and goles != "n":
@@ -32,119 +34,41 @@ class Liga():
             while cont < cant_goles:
                 que_club = input("que club hizo gol? para local ingrese l, para visitante ingrese v: ")
                 if que_club == "l":
-                    for i in range(len(club1.lista_jugadores)):
-                        print(club1.lista_jugadores[i].dni, club1.lista_jugadores[i].nombre, club1.lista_jugadores[i].apellido)
-                    esta_g='no'
-                    while esta_g=='no':
-                        goleador = int(input("ingrese el dni del jugador que metio gol: "))
-                        for i in range(len(club1.lista_jugadores)):
-                            if goleador == club1.lista_jugadores[i].dni:
-                                goleador = club1.lista_jugadores[i]
-                                goleador.hacer_gol()
-                                esta_g='si'
-                                cont_l+=1
-                            else:
-                                print("el jugador ingresado no existe.")
+                    club1.buscar_goleador()
                     asistencia = input("el gol tuvo asistencia? ingrese s o n: ")
                     while asistencia != "s" and asistencia != "n":
                         asistencia = input("ingrese una respuesta válida. si el gol tuvo asistencia ingrese s, si no ingrese n: ")
                     if asistencia == 's':
-                        for i in range(len(club1.lista_jugadores)):
-                            print(club1.lista_jugadores[i].dni, club1.lista_jugadores[i].nombre, club1.lista_jugadores[i].apellido)
-                        esta_as='no'
-                        while esta_as=='no':
-                            asistente = int(input("ingrese el dni del jugador que metio gol: "))
-                            for i in range(len(club1.lista_jugadores)):
-                                if asistente == club1.lista_jugadores[i].dni:
-                                    asistente = club1.lista_jugadores[i]
-                                    asistente.dar_asistencia()
-                                    esta_as='si'
-                                else:
-                                    print("el jugador ingresado no existe.")
-                    for i in range(len(club2.lista_jugadores)):
-                        if club2.lista_jugadores[i].posicion == "Arquero":
-                            print(club2.lista_jugadores[i].dni, club2.lista_jugadores[i].nombre, club2.lista_jugadores[i].apellido)
-                    esta_a='no'
-                    while esta_a=='no':   
-                        arquero= int(input("ingrese el dni del arquero al que le metieron gol: "))
-                        for i in range(len(club2.lista_jugadores)):
-                            if arquero == club2.lista_jugadores[i].dni:
-                                arquero = club2.lista_jugadores[i]
-                                arquero.recibir_gol()
-                                esta_a='si'
-                                cont+=1
-                            else:
-                                print("el jugador ingresado no existe.")
-                    
+                        club1.buscar_asistidor()
+                    club2.buscar_arquero_recibio_gol()
+                    cont_l+=1
+                    cont+=1 
                 else: #club visitante
-                    for i in range(len(club2.lista_jugadores)):
-                        print(club2.lista_jugadores[i].dni, club2.lista_jugadores[i].nombre, club2.lista_jugadores[i].apellido)
-                    esta_g='no'
-                    while esta_g=='no':
-                        goleador = int(input("ingrese el dni del jugador que metio gol: "))
-                        for i in range(len(club2.lista_jugadores)):
-                            if goleador == club2.lista_jugadores[i].dni:
-                                goleador = club2.lista_jugadores[i]
-                                goleador.hacer_gol()
-                                esta_g='si'
-                                cont_v+=1
-                            else:
-                                print("el jugador ingresado no existe.")
+                    club2.buscar_goleador()
                     asistencia = input("el gol tuvo asistencia? ingrese s o n: ")
                     while asistencia != "s" and asistencia != "n":
                         asistencia = input("ingrese una respuesta válida. si el gol tuvo asistencia ingrese s, si no ingrese n: ")
                     if asistencia == 's':
-                        for i in range(len(club2.lista_jugadores)):
-                            print(club2.lista_jugadores[i].dni, club2.lista_jugadores[i].nombre, club2.lista_jugadores[i].apellido)
-                        esta_as='no'
-                        while esta_as=='no':
-                            asistente = int(input("ingrese el dni del jugador que metio gol: "))
-                            for i in range(len(club2.lista_jugadores)):
-                                if asistente == club2.lista_jugadores[i].dni:
-                                    asistente = club2.lista_jugadores[i]
-                                    asistente.dar_asistencia()
-                                    esta_as='si'
-                                else:
-                                    print("el jugador ingresado no existe.")
-                    for i in range(len(club1.lista_jugadores)):
-                        if club2.lista_jugadores[i].posicion == "Arquero":
-                            print(club1.lista_jugadores[i].dni, club1.lista_jugadores[i].nombre, club1.lista_jugadores[i].apellido)
-                    esta_a='no'
-                    while esta_a=='no':   
-                        arquero= int(input("ingrese el dni del arquero al que le metieron gol: "))
-                        for i in range(len(club1.lista_jugadores)):
-                            if arquero == club1.lista_jugadores[i].dni:
-                                arquero = club1.lista_jugadores[i]
-                                arquero.recibir_gol()
-                                esta_a='si'
-                                cont+=1
-                            else:
-                                print("el jugador ingresado no existe.")
-        if cont_l ==0:
-            for i in range(len(club2.lista_jugadores)):
-                if club2.lista_jugadores[i].posicion == "Arquero":
-                    print(club2.lista_jugadores[i].dni, club2.lista_jugadores[i].nombre, club2.lista_jugadores[i].apellido)
-            esta_a='no'
-            while esta_a=='no':   
-                arquero= int(input("ingrese el dni del arquero al que le metieron gol: "))
-                for i in range(len(club2.lista_jugadores)):
-                    if arquero == club2.lista_jugadores[i].dni:
-                        arquero = club2.lista_jugadores[i]
-                        arquero.recibir_gol()
-                        esta_a='si'
-                        cont+=1
-                    else:
-                        print("el jugador ingresado no existe.")
-
+                        club2.buscar_asistidor()
+                    club1.buscar_arquero_recibio_gol()
+                    cont_v+=1
+                    cont+=1
+            if cont_l ==0:
+                club2.buscar_arquero_valla_invicta()
+            if cont_v==0:
+                club1.buscar_arquero_valla_invicta()
         else:
+            club1.buscar_arquero_valla_invicta()
+            club2.buscar_arquero_valla_invicta()
 
-        tarjetas = input("ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
-        while tarjetas != "s" and tarjetas != "n":
-            tarjetas = input("No ingreso una opcion valida. ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
-        if goles == "s":
-            cant_tarjetas = int(input("Cuantas taretas totales hubo en el partido? "))
-            cont=0
-            while cont < cant_tarjetas:
+        # tarjetas = input("ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
+        # while tarjetas != "s" and tarjetas != "n":
+        #     tarjetas = input("No ingreso una opcion valida. ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
+        # if goles == "s":
+        #     cant_tarjetas = int(input("Cuantas taretas totales hubo en el partido? "))
+        #     cont=0
+        #     while cont < cant_tarjetas:
+        #         pass
                 
         
     def __str__(self):
