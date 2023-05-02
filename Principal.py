@@ -167,16 +167,16 @@ def cargar_archivo():
 
 
 def menu():
-    menu=int(input("""Elija que accion desea
+    menu=int(input("""Elija una opción del menú:
 1- Agregar Liga
 2- Agregar Club
 3- Agregar Jugador
-4- Modificar Club 
-5- Modificar Jugador (retirar jugador, cambiar estado, cambiar valor)
+4- Modificar Club (comprar jugador, cambiar presupuesto)
+5- Modificar Jugador (retirar jugador, cambiar estado de jugador, cambiar valor de jugador)
 6- Jugar partido
-7- Ver Liga
-8- Ver Club
-9- Ver Jugador   
+7- Visualizar Liga
+8- Visualizar Club
+9- Visualizar Jugador   
 10- Salir      
                """))
     return menu
@@ -184,29 +184,29 @@ def menu():
 while(menu!=10 ):
     guardo=menu()
     if guardo==1:
-        nombre=str(input("Ingrese el nombre de la liga: "))
+        nombre=str(input("Ingrese el nombre de la liga que desea agregar: "))
         while nombre in Liga.lista_nombre_ligas:   #no puede haber dos ligas con el mismo nombre ni dos ligas por pais
-            nombre=str(input("El nombre de liga ya existe. Ingrese el nombre de la liga: "))
-        pais=str(input("Ingrese el pais de la liga: "))
+            nombre=str(input("Ya existe una liga con ese nombre. Ingrese otro nombre para la liga: "))
+        pais=str(input("Ingrese el país al que pertenece la liga: "))
         while pais in Liga.lista_paises_ligas:
-            pais=str(input("El pais de liga ya esta tomado. Ingrese el pais de la liga: "))
+            pais=str(input("Ya existe una liga para ese país; no puede existir más de 1 liga por país. Ingrese otro país: "))
         liga=Liga(nombre,pais)
         Liga.lista_ligas.append(liga)
         Liga.lista_nombre_ligas.append(liga.nombre)
         Liga.lista_paises_ligas.append(liga.pais)
 
     elif guardo==2:
-        nombre=str(input("Ingrese el nombre del club: "))
-        id=int(input("Ingrese el ID del club: "))
+        nombre=str(input("Ingrese el nombre del club que desea agregar: "))
+        id=int(input("Ingrese un ID para el club (nro. o nros. enteros): "))
         while id in Club.lista_id_clubes: 
-            id=int(input("El id ya existe. Ingrese el ID del club: "))
+            id=int(input("El ID ingresado ya existe para otro club. Ingrese otro ID para el club: "))
         Club.lista_id_clubes.append(id)
         for i in range(len(Liga.lista_nombre_ligas)):
             print(Liga.lista_nombre_ligas[i])
-        liga=str(input("Elija la liga del club de las que estan disponibles: "))
+        liga=str(input("Elija la liga a la que va a agregar el club. Las ligas disponibles son las siguientes: "))
         while liga not in Liga.lista_nombre_ligas:
-            liga=str(input("Esa liga no existe. Elija la liga del club de las que estan disponibles: "))
-        presupuesto=str(input("Ingrese el presupuesto del club: "))
+            liga=str(input("La liga ingresada no existe. Elija una de la lista que se le presentó: "))
+        presupuesto=str(input("Ingrese el presupuesto actual del club (ingrese solamente nros. a menos que sea un nro. decimal): "))
         presupuesto=validar_presupuesto(presupuesto)
         club=Club(nombre,id,liga,presupuesto)    
         Club.lista_clubes.append(club)
@@ -216,41 +216,41 @@ while(menu!=10 ):
                 Liga.lista_ligas[i].cant_clubes+=1
 
     elif guardo==3:
-        nombre=str(input("Ingrese el nombre del jugador: "))
-        apellido=str(input("Ingrese el apellido del jugador: "))
-        dni=int(input("Ingrese el dni del jugador: "))
+        nombre=str(input("Ingrese el nombre del jugador que desea agregar: "))
+        apellido=str(input("Ingrese el apellido del jugador que desea agregar: "))
+        dni=int(input("Ingrese el DNI del jugador: "))
         dni=validar_longitud_dni(dni)
         while dni in Persona.lista_dni_personas: 
-            dni=int(input("El dni ya existe. Ingrese el dni del jugador: "))
+            dni=int(input("El DNI ingresado ya existe para otro jugador. Intente de nuevo: "))
             dni=validar_longitud_dni(dni)
         Persona.lista_dni_personas.append(dni)
         fecha_nacimiento = input("Ingrese la fecha de nacimiento del jugador en formato dd/mm/aaaa: ")
         fecha_nacimiento = validar_fecha_nacimiento(fecha_nacimiento) 
         edad = calcular_edad(fecha_nacimiento) # falta validar que ingrese bien la fecha de nacimiento
         nacionalidad = input("Ingrese la nacionalidad del jugador: ")
-        estatura = int(input("Ingrese la estatura en metros del jugador: "))
+        estatura = int(input("Ingrese la estatura (en metros) del jugador: "))
         estatura = validar_estatura(estatura)
-        peso = float(input("Ingrese el peso en kilogramos del jugador: "))
+        peso = float(input("Ingrese el peso (en kilogramos) del jugador: "))
         peso = validar_peso(peso)
         valor = int(input("Ingrese el valor del jugador: "))
         valor = validar_valor(valor)
         for i in range(len(Club.lista_clubes)):
             print(Club.lista_clubes[i].id, Club.lista_clubes[i].nombre)
-        idclub = input("Ingrese el id del club del jugador de los que estan disponibles: ")
+        idclub = input("Ingrese el ID del club al que desea agregar al jugador. Los clubes con sus respectivos IDs son los siguientes: ")
         while idclub not in Club.lista_id_clubes:
-            idclub=str(input("Ese club no existe. Elija club del jugador de los que estan disponibles: "))
+            idclub=str(input("El ID club ingresado no corresponde a ningún club existente. Elija una de las opciones que se le mostraron: "))
         for i in range(len(Club.lista_clubes)):
             if idclub == Club.lista_clubes[i].id:
                 club == Club.lista_clubes[i].nombre
         estado= input("Ingrese el estado fisico del jugador ('Activo' o 'Lesionado'): ")
         estado = validar_estado(estado)
-        cantidad_partidos= int(input("Ingrese la cantidad de partidos jugados del jugador: "))
+        cantidad_partidos= int(input("Ingrese la cantidad de partidos jugados por el jugador: "))
         cantidad_partidos= validar_cantidad_partidos(cantidad_partidos)
-        cantidad_tarjetas= int(input("Ingrese la cantidad de tarjetas que recibio el jugador: "))
+        cantidad_tarjetas= int(input("Ingrese la cantidad de tarjetas que recibió el jugador: "))
         cantidad_tarjetas= validar_cantidad_tarjetas(cantidad_tarjetas)
-        posicion=int(input("Ingrese solamente el numero de la posicion del jugador (1. Arquero o 2. Jugador de campo): "))
+        posicion=int(input("En qué posición juega? Ingrese sólo el nro. correspondiente a la posición (1. Arquero o 2. Jugador de campo): "))
         while posicion != 1 and posicion != 2:
-            posicion=int(input("Ingrese solamente el numero de la posicion del jugador (1. Arquero o 2. Jugador de campo): "))
+            posicion=int(input("Ingresó un nro. que no corresponde a una posición. Intente de nuevo: "))
         if posicion == 1:
             posicion = "Arquero"
             vallas_invictas = int(input("Ingrese la cantidad de vallas invictas que tiene el arquero: "))
@@ -261,7 +261,7 @@ while(menu!=10 ):
             Arquero.lista_arqueros.append(arquero)
         else: 
             posicion = "Jugador de campo"
-            goles= int(input("Ingrese la cantidad de goles que marco el jugador: "))
+            goles= int(input("Ingrese la cantidad de goles que marcó el jugador: "))
             goles = validar_goles(goles)
             asistencias = int(input("Ingrese la cantidad de asistencias que hizo el jugador: "))
             asistencias = validar_asistencia(asistencias)
@@ -269,11 +269,11 @@ while(menu!=10 ):
             JugadorDeCampo.lista_jugadorescampo.append(jugador_de_campo)
 
     elif guardo==4:
-        sub_menu=int(input("""Elija que accion desea:
+        sub_menu=int(input("""Elija la acción que desea:
         1- Comprar Jugador
         2- Cambiar Presupuesto"""))
         while sub_menu != 1 and sub_menu != 2:
-            sub_menu=int(input("""Elija que accion desea:
+            sub_menu=int(input("""Elija la acción que desea:
         1- Comprar Jugador
         2- Cambiar Presupuesto"""))
         if sub_menu == 1: 
@@ -288,15 +288,25 @@ while(menu!=10 ):
         else:
             liga = elegir_liga()
             club = elegir_club(liga)
-            monto = int(input("Ingrese el monto que se le agregue o reste al presupuesto (si es negativo ingrese un '-' antes del numero): "))
+            monto = int(input("Ingrese el monto que desea agregar o restar al presupuesto (si desea restar, ingrese un '-' antes del número): "))
             club.modificar_presupuesto(monto)
 
-
-
-
-
     elif guardo==5:
-        pass
+        sub_menu=int(input("""Elija la acción que desea:
+        1- Retirar Jugador
+        2- Cambiar Estado de un Jugador
+        3. Cambiar Valor de un Jugador"""))
+        while sub_menu != 1 and sub_menu != 2 and sub_menu!= 3:
+            sub_menu=int(input("""Elija la acción que desea:
+        1- Retirar Jugador
+        2- Cambiar Estado de un Jugador
+        3. Cambiar Valor de un Jugador"""))
+        if sub_menu == 1:
+            pass
+        elif sub_menu == 2:
+            pass
+        else:
+            pass
 
     elif guardo==6:
         pass
@@ -317,7 +327,7 @@ while(menu!=10 ):
         print(jugador)
 
     elif guardo<1 or guardo>10:
-        print("Error al elegir accion. Intente de nuevo.")
+        print("Error al elegir acción. Intente de nuevo: ")
         guardo=menu()
     elif guardo==10:
         break

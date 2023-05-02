@@ -16,7 +16,7 @@ class Jugador(Persona):
         self.cantidad_tarjetas = cantidad_tarjetas
         self.posicion=posicion
 
-    def retirar_jugador(self):
+    def retirar_jugador(self): #definir (soy maica, mande una idea x whatsapp)
         pass
 
     def modificar_valor(self, monto):

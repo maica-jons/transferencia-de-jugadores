@@ -5,23 +5,6 @@ from JugadorDeCampo import JugadorDeCampo
 from Club import Club
 from Liga import Liga
 
-
-def crear_matriz(que_matriz_es):
-     atributos = int(input("ingresa cantidad de atributos: "))
-     matriz = [None]*(atributos+1)
-     print(matriz)
-     for columna in range(len(matriz)):
-          if columna == 0:
-               matriz[columna] = (que_matriz_es)
-          else:
-               atributo = input("ingresa título columna que representa atributo: ")
-               matriz[columna] = atributo
-     return matriz
-
-#def completar_matriz(matriz,lista):
-    # for objeto in lista:
-        #  lista_atributos = 
-
 matriz_ligas = crear_matriz("LIGAS")
 print(matriz_ligas)
 
@@ -63,3 +46,21 @@ def cargar_archivo():
                          for jugadorcampo in archivo_jugadorescampo:
                               dato_jugadorcampo = jugadorcampo.split(',')
                               JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
+
+#esto despues lo borramos. era idea maica para pasar despues a archivos (no borramos por las dudas todavia)
+
+# def crear_matriz(que_matriz_es):
+#      atributos = int(input("ingresa cantidad de atributos: "))
+#      matriz = [None]*(atributos+1)
+#      print(matriz)
+#      for columna in range(len(matriz)):
+#           if columna == 0:
+#                matriz[columna] = (que_matriz_es)
+#           else:
+#                atributo = input("ingresa título columna que representa atributo: ")
+#                matriz[columna] = atributo
+#      return matriz
+
+#def completar_matriz(matriz,lista):
+    # for objeto in lista:
+        #  lista_atributos = 
