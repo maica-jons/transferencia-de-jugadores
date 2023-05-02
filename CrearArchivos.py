@@ -36,17 +36,21 @@ def guardar_archivos():
                          for club in Club.lista_clubes:
                               archivo_clubes.writerow(club.nombre + ',' + club.id + ',' + club.liga + ',' + club.presupuesto + ',' + club.valor_del_club)
 
-                         for arquero in 
+                         for arquero in Arquero.lista_arqueros:
+                              archivo_arqueros.writerow(arquero.nombre + ',' + arquero.apellido + ',' + arquero.dni + ',' + arquero.edad + ',' + arquero.nacionalidad + ',' + arquero.estatura + ',' + arquero.peso + ',' + arquero.valor + ',' + arquero.club + ',' + arquero.estado + ',' + arquero.cantidad_partidos + ',' + arquero.cantidad_tarjetas + ',' + arquero.posicion + ',' + arquero.vallas_invictas + ',' + arquero.goles_recibidos)
+
+                         for jugadorcampo in JugadorDeCampo.lista_jugadorescampo:
+                              archivo_jugadorescampo.writerow(jugadorcampo.nombre + ',' + jugadorcampo.apellido + ',' + jugadorcampo.dni + ',' + jugadorcampo.edad + ',' + jugadorcampo.nacionalidad + ',' + jugadorcampo.estatura + ',' + jugadorcampo.peso + ',' + jugadorcampo.valor + ',' + jugadorcampo.club + ',' + jugadorcampo.estado + ',' + jugadorcampo.cantidad_partidos + ',' + jugadorcampo.cantidad_tarjetas + ',' + jugadorcampo.posicion + ',' + jugadorcampo.goles + ',' + jugadorcampo.asistencias)
 
 
-def guardarEnArchivo(self,archivo_cuentas,archivo_depositos,archivo_retiros):
-     archivo_cuentas.writerow(self.titular.nombre + "," + self.titular.dni + "," + self.titular.genero + "," + self.cbu)
+# def guardarEnArchivo(self,archivo_cuentas,archivo_depositos,archivo_retiros):
+#      archivo_cuentas.writerow(self.titular.nombre + "," + self.titular.dni + "," + self.titular.genero + "," + self.cbu)
 
-     for monto in self.depositos:
-          archivo_depositos.writerow(self.cbu + "," + monto)
+#      for monto in self.depositos:
+#           archivo_depositos.writerow(self.cbu + "," + monto)
 
-     for monto in self.retiros:
-          archivo_retiros.writerow(self.cbu + "," + monto)
+#      for monto in self.retiros:
+#           archivo_retiros.writerow(self.cbu + "," + monto)
 
 # def guardarPrograma():
 #      with open("./cuentas.csv","w") as archivo_cuentas:
