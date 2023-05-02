@@ -4,9 +4,9 @@ from Arquero import Arquero
 
 
 class Liga():
-    lista_ligas = [] #total de ligas
+    lista_ligas = [] #Total de ligas
     lista_nombre_ligas = []
-    lista_paises_ligas = [] #cada pais tiene maximo 1 liga (si creo una liga en un pais que ya tiene, no me deja)
+    lista_paises_ligas = [] #Cada país tiene máximo 1 liga (si creo una liga en un pais que ya tiene, no me deja)
 
     def __init__(self, nombre, pais):
         if nombre in Liga.lista_ligas:
@@ -15,47 +15,47 @@ class Liga():
             Liga.lista_ligas += nombre
         self.nombre = nombre
         self.pais = pais
-        self.lista_clubes = [] #clubes de cada liga
+        self.lista_clubes = [] #Clubes de cada liga
         self.cant_clubes = 0 #Ver si lo mantenemos porque es medio innecesario
 
 
 
     def jugar_partido(self, club1, club2):
-        goles = input("ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
+        goles = input("Ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
         while goles != "s" and goles != "n":
-            goles = input("No ingreso una opcion valida. ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
+            goles = input("No ingreso una opcion valida. Ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
         if goles == "s":
-            cant_goles = int(input("Cuantos goles totales hubo en el partido? "))
+            cant_goles = int(input("Cuántos goles totales hubo en el partido? "))
             while cant_goles <=0:
                 cant_goles = int(input("El numero tiene que se mayor a 0. Cuantos goles totales hubo en el partido? "))
-            cont=0
-            cont_l=0
-            cont_v=0
+            cont = 0
+            cont_l = 0
+            cont_v = 0
             while cont < cant_goles:
-                que_club = input("que club hizo gol? para local ingrese l, para visitante ingrese v: ")
+                que_club = input("Qué club hizo gol? Para local ingrese 'l', para visitante ingrese 'v': ")
                 if que_club == "l":
                     club1.buscar_goleador()
-                    asistencia = input("el gol tuvo asistencia? ingrese s o n: ")
+                    asistencia = input("El gol tuvo asistencia? Ingrese 's' si el gol TUVO asistencia y 'n' si el gol NO TUVO asistencia: ")
                     while asistencia != "s" and asistencia != "n":
-                        asistencia = input("ingrese una respuesta válida. si el gol tuvo asistencia ingrese s, si no ingrese n: ")
+                        asistencia = input("Ingrese una respuesta válida. Ingrese 's' si el gol TUVO asistencia y 'n' si el gol NO TUVO asistencia: ")
                     if asistencia == 's':
                         club1.buscar_asistidor()
                     club2.buscar_arquero_recibio_gol()
-                    cont_l+=1
-                    cont+=1 
+                    cont_l += 1
+                    cont += 1 
                 else: #club visitante
                     club2.buscar_goleador()
-                    asistencia = input("el gol tuvo asistencia? ingrese s o n: ")
+                    asistencia = input("El gol tuvo asistencia? Ingrese 's' si el gol TUVO asistencia y 'n' si el gol NO TUVO asistencia:")
                     while asistencia != "s" and asistencia != "n":
-                        asistencia = input("ingrese una respuesta válida. si el gol tuvo asistencia ingrese s, si no ingrese n: ")
+                        asistencia = input("Ingrese una respuesta válida. Ingrese 's' si el gol TUVO asistencia y 'n' si el gol NO TUVO asistencia: ")
                     if asistencia == 's':
                         club2.buscar_asistidor()
                     club1.buscar_arquero_recibio_gol()
-                    cont_v+=1
-                    cont+=1
-            if cont_l ==0:
+                    cont_v += 1
+                    cont += 1
+            if cont_l == 0:
                 club2.buscar_arquero_valla_invicta()
-            if cont_v==0:
+            if cont_v == 0:
                 club1.buscar_arquero_valla_invicta()
         else:
             club1.buscar_arquero_valla_invicta()

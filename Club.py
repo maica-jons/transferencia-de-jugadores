@@ -14,12 +14,12 @@ class Club():
     def comprar_jugador(self, club_vendedor, jugador):
         if jugador.valor <= self.presupuesto:
             club_vendedor.lista_jugadores.remove(jugador)
+            club_vendedor.presupuesto += jugador.valor
+            club_vendedor.valor_del_club -= jugador.valor
             self.lista_jugadores.append(jugador)
             jugador.club = self.nombre
             self.presupuesto -= jugador.valor
             self.valor_del_club += jugador.valor
-            club_vendedor.presupuesto += jugador.valor
-            club_vendedor.valor_del_club -= jugador.valor
             print("Jugador comprado correctamente.")
         else:
             print("No hay presupuesto suficiente para comprar ese jugador.")
@@ -32,77 +32,77 @@ class Club():
         for i in range(len(self.lista_jugadores)):
             if self.lista_jugadores[i].posicion == "Arquero":
                 print(self.lista_jugadores[i].dni, self.lista_jugadores[i].nombre, self.lista_jugadores[i].apellido)
-        esta_a='no'
-        while esta_a=='no':   
-            arquero= int(input("ingrese el dni del arquero que no recibio goles: "))
+        esta_a="No"
+        while esta_a=="No":   
+            arquero= int(input("Ingrese el dni del arquero que no recibió goles: "))
             for i in range(len(self.lista_jugadores)):
                 if arquero == self.lista_jugadores[i].dni:
                     arquero = self.lista_jugadores[i]
                     arquero.tener_valla_invicta()
-                    esta_a='si'
+                    esta_a="Sí"
                 else:
-                    print("el jugador ingresado no existe.")
+                    print("El jugador ingresado no existe.")
         return arquero
 
     def buscar_arquero_recibio_gol(self):
         for i in range(len(self.lista_jugadores)):
             if self.lista_jugadores[i].posicion == "Arquero":
                 print(self.lista_jugadores[i].dni, self.lista_jugadores[i].nombre, self.lista_jugadores[i].apellido)
-        esta_a='no'
-        while esta_a=='no':   
-            arquero= int(input("ingrese el dni del arquero al que le metieron gol: "))
+        esta_a="No"
+        while esta_a=="No":   
+            arquero= int(input("Ingrese el dni del arquero al que le metieron gol: "))
             for i in range(len(self.lista_jugadores)):
                 if arquero == self.lista_jugadores[i].dni:
                     arquero = self.lista_jugadores[i]
                     arquero.recibir_gol()
-                    esta_a='si'
+                    esta_a="Sí"
                 else:
-                    print("el jugador ingresado no existe.")
+                    print("El jugador ingresado no existe.")
         return arquero
 
     def buscar_goleador(self):
         for i in range(len(self.lista_jugadores)):
             print(self.lista_jugadores[i].dni, self.lista_jugadores[i].nombre, self.lista_jugadores[i].apellido)
-        esta_g='no'
-        while esta_g=='no':
-            goleador = int(input("ingrese el dni del jugador que metio gol: "))
+        esta_g="No"
+        while esta_g=="No":
+            goleador = int(input("Ingrese el dni del jugador que metió gol: "))
             for i in range(len(self.lista_jugadores)):
                 if goleador == self.lista_jugadores[i].dni:
                     goleador = self.lista_jugadores[i]
                     goleador.hacer_gol()
-                    esta_g='si'
+                    esta_g="Sí"
                 else:
-                    print("el jugador ingresado no existe.")
+                    print("El jugador ingresado no existe.")
         return goleador
     
     def buscar_asistidor(self):
         for i in range(len(self.lista_jugadores)):
             print(self.lista_jugadores[i].dni, self.lista_jugadores[i].nombre, self.lista_jugadores[i].apellido)
-        esta_as='no'
-        while esta_as=='no':
-            asistente = int(input("ingrese el dni del jugador que dio la asistencia: "))
+        esta_as="No"
+        while esta_as=="No":
+            asistidor = int(input("Ingrese el dni del jugador que dió la asistencia: "))
             for i in range(len(self.lista_jugadores)):
-                if asistente == self.lista_jugadores[i].dni:
-                    asistente = self.lista_jugadores[i]
-                    asistente.dar_asistencia()
-                    esta_as='si'
+                if asistidor == self.lista_jugadores[i].dni:
+                    asistidor = self.lista_jugadores[i]
+                    asistidor.dar_asistencia()
+                    esta_as="Sí"
                 else:
-                    print("el jugador ingresado no existe.")
-        return asistente
+                    print("El jugador ingresado no existe.")
+        return asistidor
 
     def buscar_jugador_tarjeta(self):
         for i in range(len(self.lista_jugadores)):
             print(self.lista_jugadores[i].dni, self.lista_jugadores[i].nombre, self.lista_jugadores[i].apellido)
-        esta_j='no'
-        while esta_j=='no':
-            jugador = int(input("ingrese el dni del jugador que metio gol: "))
+        esta_j="No"
+        while esta_j=="No":
+            jugador = int(input("Ingrese el dni del jugador al que le sacaron alguna tarjeta: "))
             for i in range(len(self.lista_jugadores)):
                 if jugador == self.lista_jugadores[i].dni:
                     jugador = self.lista_jugadores[i]
-                    jugador.hacer_gol()
-                    esta_j='si'
+                    jugador.cantidad_tarjetas+=1
+                    esta_j="Sí"
                 else:
-                    print("el jugador ingresado no existe.")
+                    print("El jugador ingresado no existe.")
         return jugador
 
     def __str__(self):
