@@ -158,15 +158,15 @@ def cargar_archivo():
                         dato_jugadorcampo = jugadorcampo.split(',')
                         JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
 
-
+#  hacer clase usuario para poder hacer el log in y registro y entrar al programa
 
 def menu():
     menu=int(input("""Elija una opción del menú:
 1- Agregar Liga
 2- Agregar Club
 3- Agregar Jugador
-4- Modificar Club (comprar jugador, cambiar presupuesto)
-5- Modificar Jugador (retirar jugador, cambiar estado de jugador, cambiar valor de jugador)
+4- Modificar Club 
+5- Modificar Jugador 
 6- Jugar partido
 7- Visualizar Liga
 8- Visualizar Club
@@ -286,6 +286,10 @@ while(menu != 10):
             club.modificar_presupuesto(monto)
 
     elif guardo == 5:
+        print("Primero elija el jugador a modificar.")
+        liga = elegir_liga()
+        club = elegir_club(liga)
+        jugador = elegir_jugador(club)
         sub_menu=int(input("""Elija la acción que desea:
         1- Retirar Jugador
         2- Cambiar Estado de un Jugador
@@ -296,14 +300,19 @@ while(menu != 10):
         2- Cambiar Estado de un Jugador
         3. Cambiar Valor de un Jugador"""))
         if sub_menu == 1:
-            pass
+            jugador.retirar_jugador(club)
         elif sub_menu == 2:
-            pass
+            jugador.modificar_estado()
         else:
-            pass
+            jugador.modificar_valor()
 
     elif guardo == 6:
-        pass
+        liga = elegir_liga()
+        print("Elija el club local que jugará el partido.")
+        club1 = elegir_club(liga)
+        print("Elija el club visitante que jugará el partido.")
+        club2 = elegir_club(liga)
+        liga.jugar_partido(club1, club2)
 
     elif guardo == 7:
         liga = elegir_liga()
