@@ -158,8 +158,6 @@ def cargar_archivo():
                         dato_jugadorcampo = jugadorcampo.split(',')
                         JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
 
-#  hacer clase usuario para poder hacer el log in y registro y entrar al programa
-
 def menu():
     menu=int(input("""Elija una opción del menú:
 1- Agregar Liga
@@ -174,6 +172,10 @@ def menu():
 10- Salir      
                """))
     return menu
+
+#  hacer clase usuario para poder hacer el log in y registro y entrar al programa
+
+# faltaria agregar las funciones de cargar y guardar archivos
 
 while(menu != 10):
     guardo = menu()
