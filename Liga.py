@@ -15,7 +15,7 @@ class Liga():
         self.nombre = nombre
         self.pais = pais
         self.lista_clubes = [] #Clubes de cada liga
-        self.cant_clubes = 0 #Ver si lo mantenemos porque es medio innecesario
+        self.cant_clubes = 0 
 
     def jugar_partido(self, club1, club2): #club1 es local, club2 es vistante
         print("Arrancó el partido!")

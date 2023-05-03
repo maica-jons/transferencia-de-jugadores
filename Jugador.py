@@ -5,8 +5,6 @@ from Club import Club
 
 class Jugador(Persona):
 
-    #lista_jugadores = []
-
     def __init__(self, nombre, apellido, dni, edad, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, cantidad_tarjetas, posicion):
         Persona.__init__(self, nombre, apellido, dni, edad, nacionalidad, estatura, peso)
         self.valor = valor
