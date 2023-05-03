@@ -1,7 +1,3 @@
-from Club import Club
-from JugadorDeCampo import JugadorDeCampo
-from Arquero import Arquero
-
 class Liga():
     lista_ligas = [] #Total de ligas
     lista_nombre_ligas = []

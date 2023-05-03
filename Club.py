@@ -1,5 +1,3 @@
-import Liga
-
 class Club():
     lista_clubes = []
     lista_id_clubes = []

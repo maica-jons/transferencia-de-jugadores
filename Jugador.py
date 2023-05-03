@@ -1,7 +1,4 @@
-import datetime
-import math
 from Persona import Persona
-from Club import Club
 
 class Jugador(Persona):
 
