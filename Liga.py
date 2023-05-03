@@ -21,7 +21,7 @@ class Liga():
 
 
     def jugar_partido(self, club1, club2): #club1 es local, club2 es vistante
-        print("Arrancó el partido.")
+        print("Arrancó el partido!")
         goles = input("Ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
         while goles != "s" and goles != "n":
             goles = input("No ingreso una opcion valida. Ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
@@ -81,7 +81,7 @@ class Liga():
                 else:
                     club2.buscar_jugador_tarjeta()
                     cont_t+=1
-        print("Partido terminado.")
+        print("Partido terminado!")
 
         # tarjetas = input("ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
         # while tarjetas != "s" and tarjetas != "n":
