@@ -5,6 +5,7 @@ from JugadorDeCampo import JugadorDeCampo
 from Club import Club
 from Liga import Liga
 
+
 class Usuario():
 
     lista_usuarios = []
