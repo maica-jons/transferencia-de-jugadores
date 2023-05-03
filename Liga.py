@@ -2,7 +2,6 @@ from Club import Club
 from JugadorDeCampo import JugadorDeCampo
 from Arquero import Arquero
 
-
 class Liga():
     lista_ligas = [] #Total de ligas
     lista_nombre_ligas = []
@@ -17,8 +16,6 @@ class Liga():
         self.pais = pais
         self.lista_clubes = [] #Clubes de cada liga
         self.cant_clubes = 0 #Ver si lo mantenemos porque es medio innecesario
-
-
 
     def jugar_partido(self, club1, club2): #club1 es local, club2 es vistante
         print("Arrancó el partido!")
@@ -82,35 +79,6 @@ class Liga():
                     club2.buscar_jugador_tarjeta()
                     cont_t+=1
         print("Partido terminado!")
-
-        # tarjetas = input("ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
-        # while tarjetas != "s" and tarjetas != "n":
-        #     tarjetas = input("No ingreso una opcion valida. ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
-        # if goles == "s":
-        #     cant_tarjetas = int(input("Cuantas taretas totales hubo en el partido? "))
-        #     cont=0
-        #     while cont < cant_tarjetas:
-        #         pass
-                
         
     def __str__(self):
         return("La liga del país '{}' se llama '{}' y está conformada por los siguientes {} clubes: {}").format(self.pais, self.nombre, self.cant_clubes, self.lista_clubes)
-
-            
-#preguntar si hubo asistencia y si hubo ingresarsela al jugador que la hizo
-
-
-    #while hasta que sea no
-    #asistencia
-    #tarjetas
-    #cont de goles 0
-    #valla invicta si termina en 0
-    # hubo goels
-    #     quien
-    #     ingresarlo
-    # sumarle +1
-    # while hasta que sea no
-    # asistencia
-    # tarjetas
-    # cont de goles 0
-    # valla invicta si termina en 0
