@@ -20,20 +20,6 @@ class Usuario():
         self.dni = dni
         self.mail = mail
 
-    def guardar_usuarios(self):
-        with open('./usuarios.csv','w') as archivo_usuarios:
-            for usuario in Usuario.lista_usuarios:
-                archivo_usuarios.writerow(usuario.nom_usuario + ',' + usuario.contrasena + ',' + usuario.nombre + ',' + usuario.apellido + ',' + usuario.dni + ',' + usuario.mail)
-
-    def cargar_usuarios(self):
-        with open('./usuarios.csv','r') as archivo_usuarios:
-            for usuario in archivo_usuarios:
-                datos_usuario = usuario.split(",")
-                obj_usuario = Usuario(datos_usuario[0], datos_usuario[1], datos_usuario[2], datos_usuario[3], datos_usuario[4], datos_usuario[5])
-                Usuario.lista_usuarios.append(obj_usuario)
-                Usuario.lista_nom_usuarios.append(obj_usuario.nom_usuario)
-                Usuario.lista_mail.append(obj_usuario.mail)
-
     def guardar_archivos(self):
         with open('./ligas.csv','w') as archivo_ligas:
             with open('./clubes.csv','w') as archivo_clubes:
@@ -49,28 +35,31 @@ class Usuario():
                             archivo_jugadorescampo.writerow(jugadorcampo.nombre + ',' + jugadorcampo.apellido + ',' + jugadorcampo.dni + ',' + jugadorcampo.edad + ',' + jugadorcampo.nacionalidad + ',' + jugadorcampo.estatura + ',' + jugadorcampo.peso + ',' + jugadorcampo.valor + ',' + jugadorcampo.club + ',' + jugadorcampo.estado + ',' + jugadorcampo.cantidad_partidos + ',' + jugadorcampo.cantidad_tarjetas + ',' + jugadorcampo.posicion + ',' + jugadorcampo.goles + ',' + jugadorcampo.asistencias)
 
 
-    def cargar_archivo(self):
-        with open('./ligas.csv','r') as archivo_ligas:
-            with open('./clubes.csv','r') as archivo_clubes:
-                with open('./arqueros.csv','r') as archivo_arqueros:
-                    with open('./jugadorescampo.csv','r') as archivo_jugadorescampo:
-                        for liga in archivo_ligas:
-                            datos_liga = liga.split(',')
-                            obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
-                            Liga.lista_ligas.append(obj_liga)
-                            Liga.lista_nombre_ligas.append(obj_liga.nombre)
-                            Liga.lista_paises_ligas.append(obj_liga.pais)
-                        for club in archivo_clubes:
-                            datos_club = club.split(',')
-                            obj_club = Club(datos_club[0],datos_club[1],datos_club[2],datos_club[3],datos_club[4],datos_club[5])
-                            Club.lista_clubes.append(obj_club)
-                            Club.lista_id_clubes.append(obj_club.id)
-                        for arquero in archivo_arqueros:
-                            datos_arquero = arquero.split(',')
-                            obj_arquero = Arquero(datos_arquero[0],datos_arquero[1],datos_arquero[2],datos_arquero[3],datos_arquero[4],datos_arquero[5],datos_arquero[6],datos_arquero[7],datos_arquero[8],datos_arquero[9],datos_arquero[10],datos_arquero[11],datos_arquero[12],datos_arquero[13],datos_arquero[14])
-                            Arquero.lista_arqueros.append(obj_arquero)
-                            Persona.lista_dni_personas.append(obj_arquero.dni)
-                        for jugadorcampo in archivo_jugadorescampo:
-                            dato_jugadorcampo = jugadorcampo.split(',')
-                            obj_jugadorcampo = JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
-                            Persona.lista_dni_personas.append(obj_jugadorcampo.dni)
+    def leer_archivo(self):
+        try: 
+            with open('./ligas.csv','r') as archivo_ligas:
+                with open('./clubes.csv','r') as archivo_clubes:
+                    with open('./arqueros.csv','r') as archivo_arqueros:
+                        with open('./jugadorescampo.csv','r') as archivo_jugadorescampo:
+                            for liga in archivo_ligas:
+                                datos_liga = liga.split(',')
+                                obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
+                                Liga.lista_ligas.append(obj_liga)
+                                Liga.lista_nombre_ligas.append(obj_liga.nombre)
+                                Liga.lista_paises_ligas.append(obj_liga.pais)
+                            for club in archivo_clubes:
+                                datos_club = club.split(',')
+                                obj_club = Club(datos_club[0],datos_club[1],datos_club[2],datos_club[3],datos_club[4],datos_club[5])
+                                Club.lista_clubes.append(obj_club)
+                                Club.lista_id_clubes.append(obj_club.id)
+                            for arquero in archivo_arqueros:
+                                datos_arquero = arquero.split(',')
+                                obj_arquero = Arquero(datos_arquero[0],datos_arquero[1],datos_arquero[2],datos_arquero[3],datos_arquero[4],datos_arquero[5],datos_arquero[6],datos_arquero[7],datos_arquero[8],datos_arquero[9],datos_arquero[10],datos_arquero[11],datos_arquero[12],datos_arquero[13],datos_arquero[14])
+                                Arquero.lista_arqueros.append(obj_arquero)
+                                Persona.lista_dni_personas.append(obj_arquero.dni)
+                            for jugadorcampo in archivo_jugadorescampo:
+                                dato_jugadorcampo = jugadorcampo.split(',')
+                                obj_jugadorcampo = JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
+                                Persona.lista_dni_personas.append(obj_jugadorcampo.dni)
+        except:
+            print("")

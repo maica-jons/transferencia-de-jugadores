@@ -125,17 +125,36 @@ def elegir_jugador(club):
             jugador = club.lista_jugadores[i]
     return jugador
 
+def guardar_usuarios():
+    with open('./usuarios.csv','w') as archivo_usuarios:
+        for usuario in Usuario.lista_usuarios:
+            archivo_usuarios.writerow(usuario.nom_usuario + ',' + usuario.contra + ',' + usuario.nombre + ',' + usuario.apellido + ',' + usuario.dni + ',' + usuario.mail)
+
+def leer_usuarios():
+    try:
+        with open('./usuarios.csv','r') as archivo_usuarios:
+            for usuario in archivo_usuarios:
+                datos_usuario = usuario.split(",")
+                obj_usuario = Usuario(datos_usuario[0], datos_usuario[1], datos_usuario[2], datos_usuario[3], datos_usuario[4], datos_usuario[5])
+                Usuario.lista_usuarios.append(obj_usuario)
+                Usuario.lista_nom_usuarios.append(obj_usuario.nom_usuario)
+                Usuario.lista_mail.append(obj_usuario.mail)
+    except:
+        print("")
+
 def menu_usuario():
-    menu=int(input("""Elija una opción del menú:
+    menu=int(input("""Elija una opción del menú (Ingrese el número):
 1- Iniciar sesión
 2- Registrarse
 3- Cambiar contraseña
-4- Salir"""))
+4- Salir
+
+"""))
     return menu
     
 
 def menu():
-    menu=int(input("""Elija una opción del menú:
+    menu=int(input("""Elija una opción del menú (Ingrese el número):
 1- Agregar Liga
 2- Agregar Club
 3- Agregar Jugador
@@ -145,63 +164,66 @@ def menu():
 7- Visualizar Liga
 8- Visualizar Club
 9- Visualizar Jugador   
-10- Cerrar sesión (Salir)      
-               """))
+10- Cerrar sesión (Salir)   
+
+"""))
     return menu
 
 #  hacer clase usuario para poder hacer el log in y registro y entrar al programa
 
 # faltaria agregar las funciones de cargar y guardar archivos
 
-while(menu_usuario != 4):
-    guardar = menu_usuario()
-    if guardar == 1:
-        if len(Usuario.lista_usuarios) == 0:
-            print("No hay ningun usuario registrado. Primero vaya a registrarse.")
-        else: 
-            esta = "No"
-            while esta == "No":
-                nom_usuario = input("Ingrese su nombre de usuario: ")
-                for i in Usuario.lista_usuarios:
-                    if nom_usuario == Usuario.lista_usuarios[i].nom_usuario:
-                        esta = "Sí"
-                        contrasena = input("Ingrese su contraseña: ")
-                        while contrasena != Usuario.lista_usuarios[i].contrasena:
-                            contrasena = input("La contraseña es incorrecta. Intente nuevamente: ")
-                        usu = Usuario.lista_usuarios[i]
-                        print("Ingresado correctamente.")
-                        usu.cargar_archivo()
-                        guardar = 4
-                        menu()
-                if esta == "No":
-                    nom_usuario = input("El nombre de usuario no existe. Intente nuevamente: ")
+while(menu_usuario != 4): 
+    try:
+        guardar = menu_usuario()
+        leer_usuarios()
+        if guardar == 1:
+            if len(Usuario.lista_usuarios) == 0:
+                print("No hay ningun usuario registrado. Primero vaya a registrarse.")
+            else: 
+                esta = "No"
+                while esta == "No":
+                    nom_usuario = input("Ingrese su nombre de usuario: ")
+                    for i in range(len(Usuario.lista_usuarios)):
+                        if nom_usuario == Usuario.lista_usuarios[i].nom_usuario:
+                            esta = "Sí"
+                            contrasena = input("Ingrese su contraseña: ")
+                            while contrasena != Usuario.lista_usuarios[i].contra:
+                                contrasena = input("La contraseña es incorrecta. Intente nuevamente: ")
+                            usu = Usuario.lista_usuarios[i]
+                            print("Ingresado correctamente.")
+                            usu.leer_archivo()
+                    if esta == "No":
+                        print("El nombre de usuario no existe.")
 
-    elif guardar == 2:
-        nombre = input("Ingrese su nombre: ")
-        apellido = input("Ingrese su apellido: ")
-        dni = int(input("Ingrese su dni: "))
-        dni = validar_longitud_dni(dni)
-        mail = input("Ingrese su mail: ")
-        while mail in Usuario.lista_mail:
-            mail = input("Ese mail ya tiene un usuario. Ingrese su mail: ")
-        Usuario.lista_mail.append(mail)
-        nom_usuario = input("Ingrese un nombre de usuario: ")
-        while nom_usuario in Usuario.lista_nom_usuarios():
-            nom_usuario = input("Ese nombre de usuario ya existe. Ingrese un nombre de usuario: ")
-        Usuario.lista_nom_usuarios.append(nom_usuario)
-        contrasena = input("Ingrese una contraseña: ")
-        while len(contrasena) <= 0: 
-            contrasena = input("No es una contraseña válida. Ingrese una contraseña: ")
-        Usuario.matriz_usuario_contrasena.append([nom_usuario, contrasena])
-        usuario = Usuario(nom_usuario, contrasena, nombre, apellido, dni, mail)
-        Usuario.lista_usuarios.append(usuario)
-    elif guardar == 3 :
-        pass
-    elif guardar < 1 or guardar >4 :
-        print("Error al elegir acción. Intente de nuevo: ")
-    elif guardar == 4:
-        break
-
+        elif guardar == 2:
+            nombre = input("Ingrese su nombre: ")
+            apellido = input("Ingrese su apellido: ")
+            dni = int(input("Ingrese su dni: "))
+            dni = validar_longitud_dni(dni)
+            mail = input("Ingrese su mail: ")
+            while mail in Usuario.lista_mail:
+                mail = input("Ese mail ya tiene un usuario. Ingrese su mail: ")
+            Usuario.lista_mail.append(mail)
+            nom_usuario = input("Ingrese un nombre de usuario: ")
+            while nom_usuario in Usuario.lista_nom_usuarios:
+                nom_usuario = input("Ese nombre de usuario ya existe. Ingrese un nombre de usuario: ")
+            Usuario.lista_nom_usuarios.append(nom_usuario)
+            contrasena = input("Ingrese una contraseña: ")
+            while len(contrasena) <= 0: 
+                contrasena = input("No es una contraseña válida. Ingrese una contraseña: ")
+            Usuario.matriz_usuario_contrasena.append([nom_usuario, contrasena])
+            usuario = Usuario(nom_usuario, contrasena, nombre, apellido, dni, mail)
+            Usuario.lista_usuarios.append(usuario)
+            guardar_usuarios()
+        elif guardar == 3 :
+            pass
+        elif guardar < 1 or guardar >4 :
+            print("Error al elegir acción. Intente de nuevo: ")
+        elif guardar == 4:
+            break
+    except:
+        print("Ingrese el número de la opcion elegida.")
 
 while(menu != 10):
     guardo = menu()
