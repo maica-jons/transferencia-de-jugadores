@@ -8,7 +8,9 @@ from Liga import Liga
 class Usuario():
 
     lista_usuarios = []
-    matriz_contrasena = []
+    matriz_usuario_contrasena = []
+    lista_mail = []
+    lista_nom_usuarios = []
 
     def __init__(self, nom_usuario, contra, nombre, apellido, dni, mail):
         self.nom_usuario = nom_usuario
@@ -17,6 +19,20 @@ class Usuario():
         self.apellido = apellido
         self.dni = dni
         self.mail = mail
+
+    def guardar_usuarios(self):
+        with open('./usuarios.csv','w') as archivo_usuarios:
+            for usuario in Usuario.lista_usuarios:
+                archivo_usuarios.writerow(usuario.nom_usuario + ',' + usuario.contrasena + ',' + usuario.nombre + ',' + usuario.apellido + ',' + usuario.dni + ',' + usuario.mail)
+
+    def cargar_usuarios(self):
+        with open('./usuarios.csv','r') as archivo_usuarios:
+            for usuario in archivo_usuarios:
+                datos_usuario = usuario.split(",")
+                obj_usuario = Usuario(datos_usuario[0], datos_usuario[1], datos_usuario[2], datos_usuario[3], datos_usuario[4], datos_usuario[5])
+                Usuario.lista_usuarios.append(obj_usuario)
+                Usuario.lista_nom_usuarios.append(obj_usuario.nom_usuario)
+                Usuario.lista_mail.append(obj_usuario.mail)
 
     def guardar_archivos(self):
         with open('./ligas.csv','w') as archivo_ligas:
