@@ -40,8 +40,8 @@ class Club():
                     arquero = self.lista_jugadores[i]
                     arquero.tener_valla_invicta()
                     esta_a = "Sí"
-                else:
-                    print("El jugador ingresado no existe.")
+            if esta_a == "No":
+                print("El jugador ingresado no existe.")
         return arquero
 
     def buscar_arquero_recibio_gol(self):
@@ -56,8 +56,8 @@ class Club():
                     arquero = self.lista_jugadores[i]
                     arquero.recibir_gol()
                     esta_a = "Sí"
-                else:
-                    print("El jugador ingresado no existe.")
+            if esta_a == "No":
+                print("El jugador ingresado no existe.")
         return arquero
 
     def buscar_goleador(self):
@@ -71,8 +71,8 @@ class Club():
                     goleador = self.lista_jugadores[i]
                     goleador.hacer_gol()
                     esta_g = "Sí"
-                else:
-                    print("El jugador ingresado no existe.")
+            if esta_g == "No":
+                print("El jugador ingresado no existe.")
         return goleador
     
     def buscar_asistidor(self):
@@ -86,8 +86,8 @@ class Club():
                     asistidor = self.lista_jugadores[i]
                     asistidor.dar_asistencia()
                     esta_as = "Sí"
-                else:
-                    print("El jugador ingresado no existe.")
+            if esta_as == "No":
+                print("El jugador ingresado no existe.")
         return asistidor
 
     def buscar_jugador_tarjeta(self):
@@ -99,10 +99,10 @@ class Club():
             for i in range(len(self.lista_jugadores)):
                 if jugador == self.lista_jugadores[i].dni:
                     jugador = self.lista_jugadores[i]
-                    jugador.cantidad_tarjetas+=1
+                    jugador.cantidad_tarjetas += 1
                     esta_j = "Sí"
-                else:
-                    print("El jugador ingresado no existe.")
+            if esta_j == "No":
+                print("El jugador ingresado no existe.")
         return jugador
 
     def __str__(self):

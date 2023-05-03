@@ -20,7 +20,8 @@ class Liga():
 
 
 
-    def jugar_partido(self, club1, club2):
+    def jugar_partido(self, club1, club2): #club1 es local, club2 es vistante
+        print("Arrancó el partido.")
         goles = input("Ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
         while goles != "s" and goles != "n":
             goles = input("No ingreso una opcion valida. Ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
@@ -33,6 +34,8 @@ class Liga():
             cont_v = 0
             while cont < cant_goles:
                 que_club = input("Qué club hizo gol? Para local ingrese 'l', para visitante ingrese 'v': ")
+                while que_club != "l" and que_club != "v":
+                    que_club = input("No ingreso una opcion valida. Para local ingrese 'l', para visitante ingrese 'v': ")
                 if que_club == "l":
                     club1.buscar_goleador()
                     asistencia = input("El gol tuvo asistencia? Ingrese 's' si el gol TUVO asistencia y 'n' si el gol NO TUVO asistencia: ")
@@ -60,6 +63,25 @@ class Liga():
         else:
             club1.buscar_arquero_valla_invicta()
             club2.buscar_arquero_valla_invicta()
+        tarjetas = input("Ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
+        while tarjetas != "s" and tarjetas != "n":
+            tarjetas = input("No ingreso una opcion valida. Ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
+        if tarjetas == "s":
+            cant_tarjetas = int(input("Cuántas tarjetas totales hubo en el partido? "))
+            while cant_tarjetas <=0:
+                cant_tarjetas = int(input("El numero tiene que se mayor a 0. Cuantas tarjetas totales hubo en el partido? "))
+            cont_t = 0
+            while cont_t < cant_tarjetas:
+                club_amonestado = input("Qué club hizo gol? Para local ingrese 'l', para visitante ingrese 'v': ")
+                while club_amonestado != "l" and club_amonestado != "v":
+                    club_amonestado = input("No ingreso una opcion valida. Para local ingrese 'l', para visitante ingrese 'v': ")
+                if club_amonestado == "l":
+                    club1.buscar_jugador_tarjeta()
+                    cont_t+=1
+                else:
+                    club2.buscar_jugador_tarjeta()
+                    cont_t+=1
+        print("Partido terminado.")
 
         # tarjetas = input("ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
         # while tarjetas != "s" and tarjetas != "n":
