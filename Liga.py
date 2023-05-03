@@ -65,7 +65,7 @@ class Liga():
             tarjetas = input("No ingreso una opcion valida. Ingrese 's' si HUBO tarjetas y 'n' si NO HUBO tarjetas: ")
         if tarjetas == "s":
             cant_tarjetas = int(input("Cuántas tarjetas totales hubo en el partido? "))
-            while cant_tarjetas <=0:
+            while cant_tarjetas <= 0:
                 cant_tarjetas = int(input("El numero tiene que se mayor a 0. Cuantas tarjetas totales hubo en el partido? "))
             cont_t = 0
             while cont_t < cant_tarjetas:
@@ -74,10 +74,10 @@ class Liga():
                     club_amonestado = input("No ingreso una opcion valida. Para local ingrese 'l', para visitante ingrese 'v': ")
                 if club_amonestado == "l":
                     club1.buscar_jugador_tarjeta()
-                    cont_t+=1
+                    cont_t += 1
                 else:
                     club2.buscar_jugador_tarjeta()
-                    cont_t+=1
+                    cont_t += 1
         print("Partido terminado!")
         
     def __str__(self):
