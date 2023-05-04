@@ -99,7 +99,7 @@ def elegir_club(liga):
     esta = "No"
     while esta == "No":
         idclub = int(input("Ingrese el id del club de los que están disponibles: "))
-        for i in liga.lista_clubes:
+        for i in range(len(liga.lista_clubes)):
             if idclub == liga.lista_clubes[i].id:
                 esta = "Sí"
     for i in range(len(liga.lista_clubes)):
@@ -113,7 +113,7 @@ def elegir_jugador(club):
     esta = "No"
     while esta == "No":
         dni = int(input("Ingrese el dni del jugador de los que están disponibles: "))
-        for i in club.lista_jugadores:
+        for i in range(len(club.lista_jugadores)):
             if dni == club.lista_jugadores[i].dni:
                 esta = "Sí"
     for i in range(len(club.lista_jugadores)):
