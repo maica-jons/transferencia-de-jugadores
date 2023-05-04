@@ -377,12 +377,14 @@ def menu_principal(usu):
         print("Error. Ingrese el numero de la opcion que desea hacer.")
 
 while(menu_usuario != 4):
+
     leer_usuarios()
     entrar = "no"
     while entrar == "no":
         guardar = menu_usuario()
         if guardar in [1,2,3,4]:
             entrar = "si"
+
     if guardar == 1:
         if len(Usuario.lista_usuarios) == 0:
             print("No hay ningun usuario registrado. Primero vaya a registrarse.")
@@ -402,11 +404,18 @@ while(menu_usuario != 4):
                         menu_principal(usu)
                 if esta == "No":
                     print("El nombre de usuario no existe.")
+
     elif guardar == 2:
         nombre = input("Ingrese su nombre: ")
         apellido = input("Ingrese su apellido: ")
-        dni = int(input("Ingrese su dni: "))
-        dni = validar_longitud_dni(dni)
+        dni_aprobado = "no"
+        while dni_aprobado == "no":
+            try:
+                dni = int(input("Ingrese su dni: "))
+                dni = validar_longitud_dni(dni)
+                dni_aprobado = "si"
+            except:
+                print("El DNI está compuesto de números solamente. Ingreselo bien por favor: ")
         mail = input("Ingrese su mail: ")
         while mail in Usuario.lista_mail:
             mail = input("Ese mail ya tiene un usuario. Ingrese su mail: ")
@@ -421,6 +430,7 @@ while(menu_usuario != 4):
         usuario = Usuario(nom_usuario, contrasena, nombre, apellido, dni, mail)
         Usuario.lista_usuarios.append(usuario)
         guardar_usuarios()
+
     elif guardar == 3 :
         if len(Usuario.lista_usuarios) == 0:
             print("No hay ningun usuario registrado. Primero vaya a registrarse.")
@@ -428,18 +438,26 @@ while(menu_usuario != 4):
             esta = "No"
             while esta == "No":
                 nom_usuario = input("Ingrese su nombre de usuario: ")
+                posicion = -1
                 for i in range(len(Usuario.lista_usuarios)):
                     if nom_usuario == Usuario.lista_usuarios[i].nom_usuario:
-                        esta = "Sí"
-                        usu = Usuario.lista_usuarios[i]
-                        contrasena = input("Primero ingrese su contraseña vieja: ")
-                        while contrasena != Usuario.lista_usuarios[i].contra:
-                            contrasena = input("La contraseña es incorrecta. Intente nuevamente: ")
-                        contra_nueva = input("Ingrese su nueva contraseña: ")
-                        usu.cambiar_contra(contra_nueva)
-                if esta == "No":
-                    print("El nombre de usuario no existe.")        
+                        posicion = i
+                if posicion < 0 :
+                    print("El nombre de usuario no existe.")
+                else:
+                    usu = Usuario.lista_usuarios[i]
+                    contrasena = input("Primero ingrese su contraseña vieja: ")
+                    while contrasena != Usuario.lista_usuarios[i].contra:
+                        contrasena = input("La contraseña es incorrecta. Intente nuevamente: ")
+                    contra_nueva = input("Ingrese su nueva contraseña: ")
+                    while len(contra_nueva) <= 0:
+                        contra_nueva = input("No es una contraseña válida. Ingrese de vuelta su nueva contraseña: ")
+                    Usuario.cambiar_contra(usu,contra_nueva)
+                    guardar_usuarios()
+                    esta = "Sí"
+
     elif guardar < 1 or guardar > 4 :
         print("Error al elegir acción. Intente de nuevo: ")
+
     elif guardar == 4:
         break
