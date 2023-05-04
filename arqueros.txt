@@ -1,0 +1,1 @@
+sergio,romero,22332222,40,arg,2.1,90.3,8000,El nombre del club es river, cuyo ID es 2. El nombre de la liga a la que pertenece es sup, tiene 40000 de presupuesto y 0 de valor. La lista de los jugadores que tiene el club es [],Activo,9,1,Arquero,3,5
