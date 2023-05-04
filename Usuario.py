@@ -20,7 +20,7 @@ class Usuario():
         self.mail = mail
 
     def __str__(self):
-        return("soy el usuario {}. pertenezco a {}, {} de DNI {} y mail {}. mi contra es {}.".format(self.nom_usuario,self.apellido,self.nombre,self.dni,self.mail,self.contra))
+        return("soy el usuario {}. Pertenezco a {}, {} de DNI {} y mail {}. mi contra es {}.".format(self.nom_usuario,self.apellido,self.nombre,self.dni,self.mail,self.contra))
 
 # cambiar la forma de escribir los archivos
 
@@ -30,9 +30,9 @@ class Usuario():
                 with open('./arqueros.txt','r+') as archivo_arqueros:
                     with open('./jugadorescampo.txt','r+') as archivo_jugadorescampo:
                         for liga in Liga.lista_ligas:
-                            archivo_ligas.writerow(liga.nombre + ',' + liga.pais + ',' + liga.lista_clubes + ',' + liga.cant_clubes)
+                            archivo_ligas.write(f"{liga.nombre},{liga.pais},{liga.lista_clubes},{liga.cant_clubes}\n")
                         for club in Club.lista_clubes:
-                            archivo_clubes.writerow(club.nombre + ',' + club.id + ',' + club.liga + ',' + club.presupuesto + ',' + club.valor_del_club + ',' + club.lista_jugadores)
+                            archivo_clubes.write(f"{club.nombre},{club.id},{club.liga},{club.presupuesto},{club.valor_del_club},{club.lista_jugadores}\n")
                         for arquero in Arquero.lista_arqueros:
                             archivo_arqueros.writerow(arquero.nombre + ',' + arquero.apellido + ',' + arquero.dni + ',' + arquero.edad + ',' + arquero.nacionalidad + ',' + arquero.estatura + ',' + arquero.peso + ',' + arquero.valor + ',' + arquero.club + ',' + arquero.estado + ',' + arquero.cantidad_partidos + ',' + arquero.cantidad_tarjetas + ',' + arquero.posicion + ',' + arquero.vallas_invictas + ',' + arquero.goles_recibidos)
                         for jugadorcampo in JugadorDeCampo.lista_jugadorescampo:
