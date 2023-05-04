@@ -19,6 +19,9 @@ class Usuario():
         self.dni = dni
         self.mail = mail
 
+    def __str__(self):
+        return("soy el usuario {}. pertenezco a {}, {} de DNI {} y mail {}. mi contra es {}.".format(self.nom_usuario,self.apellido,self.nombre,self.dni,self.mail,self.contra))
+
 # cambiar la forma de escribir los archivos
 
     def guardar_archivos(self):
@@ -65,5 +68,19 @@ class Usuario():
             print("")
 
     def cambiar_contra(self,nueva):
+        print(self.contra)
+        for usuario in range(len(Usuario.lista_usuarios)):
+            if Usuario.lista_usuarios[usuario] == self:
+                print(Usuario.lista_usuarios[usuario].contra)
+        for elemento in Usuario.lista_usuarios:
+            print(elemento)
         self.contra = nueva
         print("Se ha cambiado la contraseña con éxito.")
+        print(self.contra)
+        for usuario in range(len(Usuario.lista_usuarios)):
+            if Usuario.lista_usuarios[usuario] == self:
+                print(Usuario.lista_usuarios[usuario].contra)
+        for elemento in Usuario.lista_usuarios:
+            print(elemento)
+        print("lista de usuarios (de clase usuario)")
+        print(Usuario.lista_usuarios)
