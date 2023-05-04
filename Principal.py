@@ -236,7 +236,7 @@ def menu_principal(usu):
                     nombre = str(input("Ingrese el nombre del jugador que desea agregar: "))
                     apellido = str(input("Ingrese el apellido del jugador que desea agregar: "))
                     dni = int(input("Ingrese el DNI del jugador: "))
-                    dni=validar_longitud_dni(dni)
+                    dni = validar_longitud_dni(dni)
                     while dni in Persona.lista_dni_personas: 
                         dni = int(input("El DNI ingresado ya existe para otro jugador. Intente de nuevo: "))
                         dni = validar_longitud_dni(dni)
@@ -259,7 +259,7 @@ def menu_principal(usu):
                     for i in range(len(Club.lista_clubes)):
                         if idclub == Club.lista_clubes[i].id:
                             club == Club.lista_clubes[i].nombre
-                    estado= input("Ingrese el estado físico del jugador ('Activo' o 'Lesionado'): ")
+                    estado = input("Ingrese el estado físico del jugador ('Activo' o 'Lesionado'): ")
                     estado = validar_estado(estado)
                     cantidad_partidos = int(input("Ingrese la cantidad de partidos jugados por el jugador: "))
                     cantidad_partidos = validar_cantidad_partidos(cantidad_partidos)
