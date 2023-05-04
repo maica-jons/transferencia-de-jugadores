@@ -13,7 +13,7 @@ class Liga():
         self.lista_clubes = [] #Clubes de cada liga
         self.cant_clubes = 0 
 
-    def jugar_partido(self, club1, club2): #club1 es local, club2 es vistante
+    def jugar_partido(self, club1, club2): #Club1 es local y club2 es vistante
         print("Arrancó el partido!")
         goles = input("Ingrese 's' si HUBO goles y 'n' si NO HUBO goles: ")
         while goles != "s" and goles != "n":
