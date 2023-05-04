@@ -4,14 +4,11 @@ class Liga():
     lista_paises_ligas = [] #Cada país tiene máximo 1 liga (si creo una liga en un pais que ya tiene, no me deja)
 
     def __init__(self, nombre, pais):
-        if nombre in Liga.lista_ligas:
-            raise ValueError("La liga ya fue creada.")
-        else:
-            Liga.lista_ligas += nombre
         self.nombre = nombre
         self.pais = pais
         self.lista_clubes = [] #Clubes de cada liga
         self.cant_clubes = 0 
+
 
     def jugar_partido(self, club1, club2): #Club1 es local y club2 es vistante
         print("Arrancó el partido!")

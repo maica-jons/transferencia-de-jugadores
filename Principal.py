@@ -16,6 +16,7 @@ def validar_longitud_dni(dni):
 def validar_fecha_nacimiento(fecha_nacimiento):
     try:
         datetime.datetime.strptime(fecha_nacimiento, '%d/%m/%Y')
+        return fecha_nacimiento
     except ValueError:
         raise ValueError("La fecha de nacimiento debe estar en formato dd/mm/aaaa")
 
@@ -188,6 +189,8 @@ def menu_principal(usu):
                 pais = str(input("Ya existe una liga para ese país, no puede existir más de 1 liga por país. Ingrese otro país: "))
             liga = Liga(nombre,pais)
             Liga.lista_ligas.append(liga)
+            for i in Liga.lista_ligas:
+                print(i)
             Liga.lista_nombre_ligas.append(liga.nombre)
             Liga.lista_paises_ligas.append(liga.pais)
 
@@ -233,7 +236,7 @@ def menu_principal(usu):
                 fecha_nacimiento = validar_fecha_nacimiento(fecha_nacimiento) 
                 edad = calcular_edad(fecha_nacimiento)
                 nacionalidad = input("Ingrese la nacionalidad del jugador: ")
-                estatura = int(input("Ingrese la estatura (en metros) del jugador: "))
+                estatura = float(input("Ingrese la estatura (en metros) del jugador: "))
                 estatura = validar_estatura(estatura)
                 peso = float(input("Ingrese el peso (en kilogramos) del jugador: "))
                 peso = validar_peso(peso)
