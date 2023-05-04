@@ -250,7 +250,7 @@ def menu_principal():
                 print(i)
             Liga.lista_nombre_ligas.append(liga.nombre)
             Liga.lista_paises_ligas.append(liga.pais)
-
+            guardar_archivos()
         elif guardo == 2:
             if len(Liga.lista_nombre_ligas) == 0:
                 print("No hay ninguna liga creada. Primero vaya a crear una.")
@@ -276,7 +276,7 @@ def menu_principal():
                     if club.liga == Liga.lista_ligas[i].nombre:
                         Liga.lista_ligas[i].lista_clubes.append(club)
                         Liga.lista_ligas[i].cant_clubes+=1
-
+                guardar_archivos()
         elif guardo == 3:
             if len(Club.lista_clubes) == 0:
                 print("No hay ningun club creado. Primero vaya a crear uno.")
@@ -332,7 +332,7 @@ def menu_principal():
                     asistencias = validar_asistencia(asistencias)
                     jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, posicion, goles, asistencias)
                     JugadorDeCampo.lista_jugadorescampo.append(jugador_de_campo)
-
+                guardar_archivos()
         elif guardo == 4:
             if len(Club.lista_clubes) == 0:
                 print("No hay ningun club creado. Primero vaya a crear uno.")
@@ -361,7 +361,7 @@ def menu_principal():
                     club = elegir_club(liga)
                     monto = int(input("Ingrese el monto que desea agregar o restar al presupuesto (si desea restar, ingrese un '-' antes del número): "))
                     club.modificar_presupuesto(monto)
-
+                guardar_archivos()
         elif guardo == 5:
             if len(Persona.lista_dni_personas) == 0:
                 print("No hay ningun jugador creado. Primero vaya a crear uno.")
@@ -374,21 +374,25 @@ def menu_principal():
                     sub_menu=int(input("""Elija la acción que desea:
                     1- Retirar Jugador
                     2- Cambiar Estado de un Jugador
-                    3. Cambiar Valor de un Jugador"""))
-                    while sub_menu != 1 and sub_menu != 2 and sub_menu!= 3:
+                    3- Cambiar Valor de un Jugador
+                    4- Salir"""))
+                    while sub_menu != 1 and sub_menu != 2 and sub_menu!= 3 and sub_menu!= 4:
                         sub_menu=int(input("""Elija la acción que desea:
                     1- Retirar Jugador
                     2- Cambiar Estado de un Jugador
-                    3. Cambiar Valor de un Jugador"""))
+                    3- Cambiar Valor de un Jugador
+                    4- Salir"""))
                 except:
                     print("Error. Ingrese el numero de la opcion que desea hacer.")
                 if sub_menu == 1:
                     jugador.retirar_jugador(club)
                 elif sub_menu == 2:
                     jugador.modificar_estado()
-                else:
+                elif sub_menu == 3:
                     jugador.modificar_valor()
-
+                elif sub_menu == 4:
+                    break
+                guardar_archivos()
         elif guardo == 6:
             if len(Liga.lista_nombre_ligas) == 0:
                 print("No hay ninguna liga creada. Primero vaya a crear una.")
@@ -402,6 +406,7 @@ def menu_principal():
                     print("Elija el club visitante que jugará el partido.")
                     club2 = elegir_club(liga)
                     liga.jugar_partido(club1, club2)
+                guardar_archivos()
 
         elif guardo == 7:
             if len(Liga.lista_nombre_ligas) == 0:
@@ -430,7 +435,6 @@ def menu_principal():
         elif guardo < 1 or guardo >10 :
             print("Error al elegir acción. Intente de nuevo: ")
         elif guardo == 10:
-            guardar_archivos()
             break
     # except:
     #     print("Error. Ingrese el numero de la opcion que desea hacer.")
