@@ -1,10 +1,3 @@
-from Persona import Persona
-from Jugador import Jugador
-from Arquero import Arquero
-from JugadorDeCampo import JugadorDeCampo
-from Club import Club
-from Liga import Liga
-
 class Usuario():
 
     lista_usuarios = []
