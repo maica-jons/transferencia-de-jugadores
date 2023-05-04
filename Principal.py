@@ -172,7 +172,8 @@ def menu_usuario():
     1- Iniciar sesión
     2- Registrarse
     3- Cambiar contraseña
-    4- Salir
+    4- Ver la lista de usuarios creados
+    5- Salir
 
     """))
         return menu
@@ -387,6 +388,7 @@ def menu_principal(usu):
 
         elif guardo < 1 or guardo >10 :
             print("Error al elegir acción. Intente de nuevo: ")
+
         elif guardo == 10:
             usu.guardar_archivos()
             break
@@ -397,7 +399,7 @@ while(menu_usuario != 5):
     entrar = "no"
     while entrar == "no":
         guardar = menu_usuario()
-        if guardar in [1,2,3,4]:
+        if guardar in [1,2,3,4,5]:
             entrar = "si"
 
     if guardar == 1:
@@ -445,6 +447,7 @@ while(menu_usuario != 5):
         usuario = Usuario(nom_usuario, contrasena, nombre, apellido, dni, mail)
         Usuario.lista_usuarios.append(usuario)
         guardar_usuario(usuario)
+
     elif guardar == 3 :
         if len(Usuario.lista_usuarios) == 0:
             print("No hay ningun usuario registrado. Para cambiar una contraseña, debe haber algún usuario registrado.")
@@ -493,12 +496,12 @@ while(menu_usuario != 5):
             #             Usuario.lista_usuarios[i].cambiar_contra(contra_nueva)
             #             esta = "Sí"
 
-    elif guardar < 1 or guardar > 5 :
-        print("Error al elegir acción. Intente de nuevo: ")
-
     elif guardar == 4:
         for usuario in Usuario.lista_usuarios:
             print(usuario)
+        
+    elif guardar < 1 or guardar > 5 :
+        print("Error al elegir acción. Intente de nuevo: ")
 
     elif guardar == 5:
         break

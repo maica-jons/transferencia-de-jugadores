@@ -20,9 +20,7 @@ class Usuario():
         self.mail = mail
 
     def __str__(self):
-        return("soy el usuario {}. Pertenezco a {}, {} de DNI {} y mail {}. mi contra es {}.".format(self.nom_usuario,self.apellido,self.nombre,self.dni,self.mail,self.contra))
-
-# cambiar la forma de escribir los archivos
+        return("Mi nombre de usuario es {}.Me llamo {} {}, mi DNI es {}, mi mail es {} y mi contraseña es {}.".format(self.nom_usuario,self.apellido,self.nombre,self.dni,self.mail,self.contra))
 
     def guardar_archivos(self):
         with open('./ligas.txt','r+') as archivo_ligas:
@@ -87,4 +85,4 @@ class Usuario():
 
     def cambiar_contra(self,nueva):
         self.contra = nueva
-        print("se cambio")
+        print("Se cambió exitosamente la contraseña.")
