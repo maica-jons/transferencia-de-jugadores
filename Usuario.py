@@ -65,24 +65,6 @@ class Usuario():
         except:
             print("")
 
-    # def cambiar_contra(self,nueva):
-    #     print(self.contra)
-    #     for usuario in Usuario.lista_usuarios:
-    #         if usuario == self:
-    #             print(usuario.contra)
-    #     for elemento in Usuario.lista_usuarios:
-    #         print(elemento)
-    #     self.contra = nueva
-    #     print("Se ha cambiado la contraseña con éxito.")
-    #     print(self.contra)
-    #     for usuario in range(len(Usuario.lista_usuarios)):
-    #         if Usuario.lista_usuarios[usuario] == self:
-    #             print(Usuario.lista_usuarios[usuario].contra)
-    #     for elemento in Usuario.lista_usuarios:
-    #         print(elemento)
-    #     print("lista de usuarios (de clase usuario)")
-    #     print(Usuario.lista_usuarios)
-
     def cambiar_contra(self,nueva):
         self.contra = nueva
         print("Se cambió exitosamente la contraseña.")
