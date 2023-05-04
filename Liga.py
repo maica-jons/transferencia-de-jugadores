@@ -3,11 +3,11 @@ class Liga():
     lista_nombre_ligas = []
     lista_paises_ligas = [] #Cada país tiene máximo 1 liga (si creo una liga en un pais que ya tiene, no me deja)
 
-    def __init__(self, nombre, pais):
+    def __init__(self, nombre, pais, lista_clubes = [], cant_clubes = 0 ):
         self.nombre = nombre
         self.pais = pais
-        self.lista_clubes = [] #Clubes de cada liga
-        self.cant_clubes = 0 
+        self.lista_clubes = lista_clubes  #Clubes de cada liga
+        self.cant_clubes =  cant_clubes
 
 
     def jugar_partido(self, club1, club2): #Club1 es local y club2 es vistante
