@@ -19,6 +19,8 @@ class Usuario():
         self.dni = dni
         self.mail = mail
 
+# cambiar la forma de escribir los archivos
+
     def guardar_archivos(self):
         with open('./ligas.txt','r+') as archivo_ligas:
             with open('./clubes.txt','r+') as archivo_clubes:
