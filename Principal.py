@@ -160,18 +160,18 @@ def guardar_archivos():
     archivo_jugadorescampo.close()
 
 def leer_ligas():
-    # try:
-    with open('./ligas.txt','r') as archivo_ligas:
-        for liga in archivo_ligas:
-            datos_liga = liga.split(',')
-            datos_liga[3] = datos_liga[3].rstrip("\n")
-            obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
-            Liga.lista_ligas.append(obj_liga)
-            Liga.lista_nombre_ligas.append(obj_liga.nombre)
-            Liga.lista_paises_ligas.append(obj_liga.pais)
-    archivo_ligas.close()
-    # except:
-    #     print("")
+    try:
+        with open('./ligas.txt','r') as archivo_ligas:
+            for liga in archivo_ligas:
+                datos_liga = liga.split(',')
+                datos_liga[3] = datos_liga[3].rstrip("\n")
+                obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
+                Liga.lista_ligas.append(obj_liga)
+                Liga.lista_nombre_ligas.append(obj_liga.nombre)
+                Liga.lista_paises_ligas.append(obj_liga.pais)
+        archivo_ligas.close()
+    except:
+        print("")
     
 def leer_clubes():
     try:
