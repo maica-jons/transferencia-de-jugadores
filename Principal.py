@@ -170,7 +170,7 @@ def menu():
 """))
     return menu
 
-def menu_principal():
+def menu_principal(usu):
     while(menu != 10):
         guardo = menu()
         if guardo == 1:
@@ -355,6 +355,7 @@ def menu_principal():
         elif guardo < 1 or guardo >10 :
             print("Error al elegir acción. Intente de nuevo: ")
         elif guardo == 10:
+            usu.guardar_archivos()
             break
 
 while(menu_usuario != 4): 
@@ -376,7 +377,7 @@ while(menu_usuario != 4):
                         usu = Usuario.lista_usuarios[i]
                         print("Ingresado correctamente.")
                         usu.leer_archivo()
-                        menu_principal()
+                        menu_principal(usu)
                 if esta == "No":
                     print("El nombre de usuario no existe.")
     elif guardar == 2:
@@ -389,8 +390,8 @@ while(menu_usuario != 4):
             mail = input("Ese mail ya tiene un usuario. Ingrese su mail: ")
         Usuario.lista_mail.append(mail)
         nom_usuario = input("Ingrese un nombre de usuario: ")
-        while nom_usuario in Usuario.lista_nom_usuarios:
-            nom_usuario = input("Ese nombre de usuario ya existe. Ingrese un nombre de usuario: ")
+        while (nom_usuario in Usuario.lista_nom_usuarios) or (nom_usuario == ""):
+            nom_usuario = input("Ese nombre es inválido. Ingrese un nombre de usuario: ")
         Usuario.lista_nom_usuarios.append(nom_usuario)
         contrasena = input("Ingrese una contraseña: ")
         while len(contrasena) <= 0: 

@@ -20,10 +20,10 @@ class Usuario():
         self.mail = mail
 
     def guardar_archivos(self):
-        with open('./ligas.csv','w') as archivo_ligas:
-            with open('./clubes.csv','w') as archivo_clubes:
-                with open('./arqueros.csv','w') as archivo_arqueros:
-                    with open('./jugadorescampo.csv','w') as archivo_jugadorescampo:
+        with open('./ligas.txt','r+') as archivo_ligas:
+            with open('./clubes.txt','r+') as archivo_clubes:
+                with open('./arqueros.txt','r+') as archivo_arqueros:
+                    with open('./jugadorescampo.txt','r+') as archivo_jugadorescampo:
                         for liga in Liga.lista_ligas:
                             archivo_ligas.writerow(liga.nombre + ',' + liga.pais + ',' + liga.lista_clubes + ',' + liga.cant_clubes)
                         for club in Club.lista_clubes:
@@ -35,10 +35,10 @@ class Usuario():
 
     def leer_archivo(self):
         try: 
-            with open('./ligas.csv','r') as archivo_ligas:
-                with open('./clubes.csv','r') as archivo_clubes:
-                    with open('./arqueros.csv','r') as archivo_arqueros:
-                        with open('./jugadorescampo.csv','r') as archivo_jugadorescampo:
+            with open('./ligas.txt','r') as archivo_ligas:
+                with open('./clubes.txt','r') as archivo_clubes:
+                    with open('./arqueros.txt','r') as archivo_arqueros:
+                        with open('./jugadorescampo.txt','r') as archivo_jugadorescampo:
                             for liga in archivo_ligas:
                                 datos_liga = liga.split(',')
                                 obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
