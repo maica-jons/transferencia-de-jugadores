@@ -331,7 +331,7 @@ def menu_principal():
                 cantidad_tarjetas = int(input("Ingrese la cantidad de tarjetas que recibió el jugador: "))
                 cantidad_tarjetas = validar_cantidad_tarjetas(cantidad_tarjetas)
                 posicion_valida = "no"
-                while posicion_valida = "no":
+                while posicion_valida == "no":
                     try:
                         posicion = (input("En qué posición juega? Ingrese sólo el nro. correspondiente a la posición (1. Arquero o 2. Jugador de campo): "))
                         while posicion != 1 and posicion != 2:
