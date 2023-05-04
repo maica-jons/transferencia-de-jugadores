@@ -131,11 +131,6 @@ def guardar_usuario():
             archivo_usuarios.write(f"{usuario.nom_usuario},{usuario.contra},{usuario.nombre},{usuario.apellido},{usuario.dni},{usuario.mail}\n")
     archivo_usuarios.close()
 
-# def guardar_usuario(usuario):
-#     with open('./usuarios.txt','w') as archivo_usuarios:
-#         archivo_usuarios.write(f"{usuario.nom_usuario},{usuario.contra},{usuario.nombre},{usuario.apellido},{usuario.dni},{usuario.mail}\n")
-#     archivo_usuarios.close()
-
 def leer_usuarios():
     try:
         with open('./usuarios.txt','r') as archivo_usuarios:
@@ -180,19 +175,6 @@ def menu_usuario():
         print("Error. Ingrese el numero de la opcion que desea hacer.")
 
 #  revisar los try except
-#  revisar el leer archivo
-
-#MAICA:
-# cuando modificabamos contra no la cambiaba en el archivo ...
-# ahora la cambia pero hay algo raro porque
-    # cuando creas nuevo usuario (en = o != corrida del codigo) y cuando cambias contrasena
-    # vuelve a pegar usuarios en el archivo (REVISAR)
-    # lo raro es que la informacion se la queda bien. osea, si cambio mi contra se queda con esa
-    # pero en el archivo los repite (revisar guardar_usuarios(), leer_usuarios() y lista de usuarios ...)
-# otra cosa: hay momentos en que saltan carteles raros (ejemplo: "error intente de nuevo")
-    # pero que no deberian aparecer en ese momento => RARO
-    # como USUARIO INVITADO NO ESTA EN CONSIGNA TP (si en la de parcial)
-    # priorizaria cumplir con las consignas del tp primero (si anda bien el tp, + facil el parcial)
 
 def menu_principal(usu):
     while(menu != 10):
@@ -453,11 +435,8 @@ while(menu_usuario != 5):
             esta = "No"
             while esta == "No":
                 nom_usuario = input("Ingrese su nombre de usuario: ")
-                # cont=0
-                # while cont<1:
                 for i in range(len(Usuario.lista_usuarios)):
                     if nom_usuario == Usuario.lista_usuarios[i].nom_usuario:
-                        # cont+=1
                         contrasena = input("Primero ingrese su contraseña vieja: ")
                         try:
                             if contrasena != Usuario.lista_usuarios[i].contra:
@@ -466,33 +445,10 @@ while(menu_usuario != 5):
                             Usuario.lista_usuarios[i].cambiar_contra(contra_nueva)
                             guardar_usuario()
                             esta = "Sí"
-                                # contrasena = input("La contraseña es incorrecta. Intente nuevamente: ")
                         except:
                             print("La contraseña es incorrecta.")
-                        
                 if esta == "No":
                     print("El nombre de usuario no existe.")
-
-
-            # esta = "No"
-            # while esta == "No":
-            #     nom_usuario = input("Ingrese el nombre de usuario de la contraseña que desea cambiar: ")
-            #     posicion = -1
-            #     for i in range(len(Usuario.lista_usuarios)):
-            #         if nom_usuario == Usuario.lista_usuarios[i].nom_usuario:
-            #         #     posicion = i
-            #         # if posicion < 0 :
-            #         #     print("El nombre de usuario ingresado no existe.")
-            #         # else:
-            #             # usu = Usuario.lista_usuarios[i]
-            #             contrasena = input("Primero ingrese su contraseña actual: ")
-            #             while contrasena != Usuario.lista_usuarios[i].contra:
-            #                 contrasena = input("La contraseña es incorrecta. Intente nuevamente: ")
-            #             contra_nueva = input("Ingrese su nueva contraseña: ")
-            #             while len(contra_nueva) <= 0:
-            #                 contra_nueva = input("No es una contraseña válida. Ingrese otra nueva contraseña: ")
-            #             Usuario.lista_usuarios[i].cambiar_contra(contra_nueva)
-            #             esta = "Sí"
 
     elif guardar < 1 or guardar > 5 :
         print("Error al elegir acción. Intente de nuevo: ")
