@@ -5,11 +5,9 @@ from JugadorDeCampo import JugadorDeCampo
 from Club import Club
 from Liga import Liga
 
-
 class Usuario():
 
     lista_usuarios = []
-    matriz_usuario_contrasena = []
     lista_mail = []
     lista_nom_usuarios = []
 
@@ -34,7 +32,6 @@ class Usuario():
                             archivo_arqueros.writerow(arquero.nombre + ',' + arquero.apellido + ',' + arquero.dni + ',' + arquero.edad + ',' + arquero.nacionalidad + ',' + arquero.estatura + ',' + arquero.peso + ',' + arquero.valor + ',' + arquero.club + ',' + arquero.estado + ',' + arquero.cantidad_partidos + ',' + arquero.cantidad_tarjetas + ',' + arquero.posicion + ',' + arquero.vallas_invictas + ',' + arquero.goles_recibidos)
                         for jugadorcampo in JugadorDeCampo.lista_jugadorescampo:
                             archivo_jugadorescampo.writerow(jugadorcampo.nombre + ',' + jugadorcampo.apellido + ',' + jugadorcampo.dni + ',' + jugadorcampo.edad + ',' + jugadorcampo.nacionalidad + ',' + jugadorcampo.estatura + ',' + jugadorcampo.peso + ',' + jugadorcampo.valor + ',' + jugadorcampo.club + ',' + jugadorcampo.estado + ',' + jugadorcampo.cantidad_partidos + ',' + jugadorcampo.cantidad_tarjetas + ',' + jugadorcampo.posicion + ',' + jugadorcampo.goles + ',' + jugadorcampo.asistencias)
-
 
     def leer_archivo(self):
         try: 
@@ -64,3 +61,7 @@ class Usuario():
                                 Persona.lista_dni_personas.append(obj_jugadorcampo.dni)
         except:
             print("")
+
+    def cambiar_contra(self,nueva):
+        self.contra = nueva
+        print("Se ha cambiado la contraseña con éxito.")
