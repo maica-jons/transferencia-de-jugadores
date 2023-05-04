@@ -137,7 +137,7 @@ def leer_usuarios():
         with open('./usuarios.txt','r') as archivo_usuarios:
             for usuario in archivo_usuarios:
                 datos_usuario = usuario.split(",")
-                datos_usuario[5]= datos_usuario[5].rstrip("\n")
+                datos_usuario[5] = datos_usuario[5].rstrip("\n")
                 obj_usuario = Usuario(datos_usuario[0], datos_usuario[1], datos_usuario[2], datos_usuario[3], datos_usuario[4], datos_usuario[5])
                 Usuario.lista_usuarios.append(obj_usuario)
                 Usuario.lista_nom_usuarios.append(obj_usuario.nom_usuario)
