@@ -329,9 +329,15 @@ def menu_principal():
                 estado = validar_estado(estado)
                 cantidad_tarjetas = int(input("Ingrese la cantidad de tarjetas que recibió el jugador: "))
                 cantidad_tarjetas = validar_cantidad_tarjetas(cantidad_tarjetas)
-                posicion = int(input("En qué posición juega? Ingrese sólo el nro. correspondiente a la posición (1. Arquero o 2. Jugador de campo): "))
-                while posicion != 1 and posicion != 2:
-                    posicion = int(input("Ingresó un nro. que no corresponde a una posición. Intente de nuevo: "))
+                posicion_valida = "no"
+                while posicion_valida == "no":
+                    try:
+                        posicion = (input("En qué posición juega? Ingrese sólo el nro. correspondiente a la posición (1. Arquero o 2. Jugador de campo): "))
+                        while posicion != 1 and posicion != 2:
+                            posicion = int(input("Ingresó un nro. que no corresponde a una posición. Intente de nuevo: "))
+                        posicion_valida = "si"
+                    except:
+                        print("Debe ingresar un nro, lea bien lo que le pide.")
                 if posicion == 1:
                     posicion = "Arquero"
                     vallas_invictas = int(input("Ingrese la cantidad de vallas invictas que tiene el arquero: "))

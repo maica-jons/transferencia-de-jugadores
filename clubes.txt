@@ -1,0 +1,1 @@
+arsenal,1,premier,30000,0,[]
