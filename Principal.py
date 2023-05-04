@@ -47,11 +47,6 @@ def validar_estado(estado):
         estado = input("Ingrese nuevamente un estado físico del jugador correctamente: ")
     return estado
 
-def validar_cantidad_partidos(cantidad_partidos):
-    while cantidad_partidos < 0:
-        cantidad_partidos = int(input("Ingrese 0 o la cantidad de partidos que disputó el jugador correctamente: "))
-    return cantidad_partidos
-
 def validar_cantidad_tarjetas(cantidad_tarjetas):
     while cantidad_tarjetas < 0:
         cantidad_tarjetas = int(input("Ingrese 0 o la cantidad de tarjetas que le sacaron al jugador correctamente: "))
@@ -164,42 +159,94 @@ def guardar_archivos():
     archivo_arqueros.close()
     archivo_jugadorescampo.close()
 
-def leer_archivo():
-    try: 
+def leer_ligas():
+    try:
         with open('./ligas.txt','r') as archivo_ligas:
-            with open('./clubes.txt','r') as archivo_clubes:
-                with open('./arqueros.txt','r') as archivo_arqueros:
-                    with open('./jugadorescampo.txt','r') as archivo_jugadorescampo:
-                        for liga in archivo_ligas:
-                            datos_liga = liga.split(',')
-                            datos_liga[3] = datos_liga[3].rstrip("\n")
-                            obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
-                            Liga.lista_ligas.append(obj_liga)
-                            Liga.lista_nombre_ligas.append(obj_liga.nombre)
-                            Liga.lista_paises_ligas.append(obj_liga.pais)
-                        for club in archivo_clubes:
-                            datos_club = club.split(',')
-                            datos_club[5] = datos_club[5].rstrip("\n")
-                            obj_club = Club(datos_club[0],datos_club[1],datos_club[2],datos_club[3],datos_club[4],datos_club[5])
-                            Club.lista_clubes.append(obj_club)
-                            Club.lista_id_clubes.append(obj_club.id)
-                        for arquero in archivo_arqueros:
-                            datos_arquero = arquero.split(',')
-                            datos_arquero[14] = datos_arquero[14].rstrip("\n")
-                            obj_arquero = Arquero(datos_arquero[0],datos_arquero[1],datos_arquero[2],datos_arquero[3],datos_arquero[4],datos_arquero[5],datos_arquero[6],datos_arquero[7],datos_arquero[8],datos_arquero[9],datos_arquero[10],datos_arquero[11],datos_arquero[12],datos_arquero[13],datos_arquero[14])
-                            Arquero.lista_arqueros.append(obj_arquero)
-                            Persona.lista_dni_personas.append(obj_arquero.dni)
-                        for jugadorcampo in archivo_jugadorescampo:
-                            dato_jugadorcampo = jugadorcampo.split(',')
-                            dato_jugadorcampo[14] = dato_jugadorcampo[14].rstrip("\n")
-                            obj_jugadorcampo = JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
-                            Persona.lista_dni_personas.append(obj_jugadorcampo.dni)
+            for liga in archivo_ligas:
+                datos_liga = liga.split(',')
+                datos_liga[3] = datos_liga[3].rstrip("\n")
+                obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
+                Liga.lista_ligas.append(obj_liga)
+                Liga.lista_nombre_ligas.append(obj_liga.nombre)
+                Liga.lista_paises_ligas.append(obj_liga.pais)
         archivo_ligas.close()
+    except:
+        print("")
+    
+def leer_clubes():
+    try:
+        with open('./clubes.txt','r') as archivo_clubes:
+            for club in archivo_clubes:
+                datos_club = club.split(',')
+                datos_club[5] = datos_club[5].rstrip("\n")
+                obj_club = Club(datos_club[0],datos_club[1],datos_club[2],datos_club[3],datos_club[4],datos_club[5])
+                Club.lista_clubes.append(obj_club)
+                Club.lista_id_clubes.append(obj_club.id)
         archivo_clubes.close()
+    except:
+        print("")
+
+def leer_arqueros():
+    try:
+        with open('./arqueros.txt','r') as archivo_arqueros:
+            for arquero in archivo_arqueros:
+                datos_arquero = arquero.split(',')
+                datos_arquero[14] = datos_arquero[14].rstrip("\n")
+                obj_arquero = Arquero(datos_arquero[0],datos_arquero[1],datos_arquero[2],datos_arquero[3],datos_arquero[4],datos_arquero[5],datos_arquero[6],datos_arquero[7],datos_arquero[8],datos_arquero[9],datos_arquero[10],datos_arquero[11],datos_arquero[12],datos_arquero[13],datos_arquero[14])
+                Arquero.lista_arqueros.append(obj_arquero)
+                Persona.lista_dni_personas.append(obj_arquero.dni)
         archivo_arqueros.close()
+    except:
+        print("")
+
+def leer_jugadorescampo():
+    try:
+        with open('./jugadorescampo.txt','r') as archivo_jugadorescampo:
+            for jugadorcampo in archivo_jugadorescampo:
+                dato_jugadorcampo = jugadorcampo.split(',')
+                dato_jugadorcampo[14] = dato_jugadorcampo[14].rstrip("\n")
+                obj_jugadorcampo = JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
+                Persona.lista_dni_personas.append(obj_jugadorcampo.dni)
         archivo_jugadorescampo.close()
     except:
         print("")
+
+# def leer_archivo():
+#     try: 
+#         with open('./ligas.txt','r') as archivo_ligas:
+#             with open('./clubes.txt','r') as archivo_clubes:
+#                 with open('./arqueros.txt','r') as archivo_arqueros:
+#                     with open('./jugadorescampo.txt','r') as archivo_jugadorescampo:
+#                         for liga in archivo_ligas:
+#                             datos_liga = liga.split(',')
+#                             datos_liga[3] = datos_liga[3].rstrip("\n")
+#                             obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
+#                             Liga.lista_ligas.append(obj_liga)
+#                             Liga.lista_nombre_ligas.append(obj_liga.nombre)
+#                             Liga.lista_paises_ligas.append(obj_liga.pais)
+#                         for club in archivo_clubes:
+#                             datos_club = club.split(',')
+#                             datos_club[5] = datos_club[5].rstrip("\n")
+#                             obj_club = Club(datos_club[0],datos_club[1],datos_club[2],datos_club[3],datos_club[4],datos_club[5])
+#                             Club.lista_clubes.append(obj_club)
+#                             Club.lista_id_clubes.append(obj_club.id)
+#                         for arquero in archivo_arqueros:
+#                             datos_arquero = arquero.split(',')
+#                             datos_arquero[14] = datos_arquero[14].rstrip("\n")
+#                             obj_arquero = Arquero(datos_arquero[0],datos_arquero[1],datos_arquero[2],datos_arquero[3],datos_arquero[4],datos_arquero[5],datos_arquero[6],datos_arquero[7],datos_arquero[8],datos_arquero[9],datos_arquero[10],datos_arquero[11],datos_arquero[12],datos_arquero[13],datos_arquero[14])
+#                             Arquero.lista_arqueros.append(obj_arquero)
+#                             Persona.lista_dni_personas.append(obj_arquero.dni)
+#                         for jugadorcampo in archivo_jugadorescampo:
+#                             dato_jugadorcampo = jugadorcampo.split(',')
+#                             dato_jugadorcampo[14] = dato_jugadorcampo[14].rstrip("\n")
+#                             obj_jugadorcampo = JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
+#                             Persona.lista_dni_personas.append(obj_jugadorcampo.dni)
+#         archivo_ligas.close()
+#         archivo_clubes.close()
+#         archivo_arqueros.close()
+#         archivo_jugadorescampo.close()
+#     except:
+#         print("")
 
 
 def menu():
@@ -234,7 +281,11 @@ def menu_usuario():
 #  revisar los try except
 
 def menu_principal():
-    leer_archivo()
+    #leer_archivo()
+    leer_ligas()
+    leer_clubes()
+    leer_arqueros()
+    leer_jugadorescampo()
     while(menu != 10):
         guardo = menu()
         if guardo == 1:
@@ -309,8 +360,6 @@ def menu_principal():
                         club == Club.lista_clubes[i].nombre
                 estado = input("Ingrese el estado físico del jugador ('Activo' o 'Lesionado'): ")
                 estado = validar_estado(estado)
-                cantidad_partidos = int(input("Ingrese la cantidad de partidos jugados por el jugador: "))
-                cantidad_partidos = validar_cantidad_partidos(cantidad_partidos)
                 cantidad_tarjetas = int(input("Ingrese la cantidad de tarjetas que recibió el jugador: "))
                 cantidad_tarjetas = validar_cantidad_tarjetas(cantidad_tarjetas)
                 posicion = int(input("En qué posición juega? Ingrese sólo el nro. correspondiente a la posición (1. Arquero o 2. Jugador de campo): "))
