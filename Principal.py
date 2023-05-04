@@ -462,7 +462,7 @@ while(menu_usuario != 4):
                     contra_nueva = input("Ingrese su nueva contraseña: ")
                     while len(contra_nueva) <= 0:
                         contra_nueva = input("No es una contraseña válida. Ingrese otra nueva contraseña: ")
-                    Usuario.cambiar_contra(usu,contra_nueva)
+                    usu.cambiar_contra(contra_nueva)
                     guardar_usuarios()
                     esta = "Sí"
 
