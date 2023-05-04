@@ -116,7 +116,6 @@ def elegir_jugador(club):
         for i in range(len(club.lista_jugadores)):
             if dni == club.lista_jugadores[i].dni:
                 esta = "Sí"
-    for i in range(len(club.lista_jugadores)):
         if dni == club.lista_jugadores[i].dni:
             jugador = club.lista_jugadores[i]
     return jugador
@@ -341,6 +340,10 @@ def menu_principal():
                     goles_recibidos = validar_goles_recibidos(goles_recibidos)
                     arquero=Arquero(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_tarjetas, posicion, vallas_invictas, goles_recibidos)
                     Arquero.lista_arqueros.append(arquero)
+                    for i in range(len(Club.lista_clubes)):
+                        if arquero.club == Club.lista_clubes[i].nombre:
+                            Club.lista_clubes[i].lista_jugadores.append(arquero)
+
                 else: 
                     posicion = "Jugador de campo"
                     goles= int(input("Ingrese la cantidad de goles que marcó el jugador: "))
@@ -349,6 +352,9 @@ def menu_principal():
                     asistencias = validar_asistencia(asistencias)
                     jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_tarjetas, posicion, goles, asistencias)
                     JugadorDeCampo.lista_jugadorescampo.append(jugador_de_campo)
+                    for i in range(len(Club.lista_clubes)):
+                        if jugador_de_campo.club == Club.lista_clubes[i].nombre:
+                            Club.lista_clubes[i].lista_jugadores.append(jugador_de_campo)
                 guardar_archivos()
         
         elif guardo == 4:
