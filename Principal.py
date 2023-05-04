@@ -211,44 +211,6 @@ def leer_jugadorescampo():
     except:
         print("")
 
-# def leer_archivo():
-#     try: 
-#         with open('./ligas.txt','r') as archivo_ligas:
-#             with open('./clubes.txt','r') as archivo_clubes:
-#                 with open('./arqueros.txt','r') as archivo_arqueros:
-#                     with open('./jugadorescampo.txt','r') as archivo_jugadorescampo:
-#                         for liga in archivo_ligas:
-#                             datos_liga = liga.split(',')
-#                             datos_liga[3] = datos_liga[3].rstrip("\n")
-#                             obj_liga = Liga(datos_liga[0],datos_liga[1],datos_liga[2],datos_liga[3])
-#                             Liga.lista_ligas.append(obj_liga)
-#                             Liga.lista_nombre_ligas.append(obj_liga.nombre)
-#                             Liga.lista_paises_ligas.append(obj_liga.pais)
-#                         for club in archivo_clubes:
-#                             datos_club = club.split(',')
-#                             datos_club[5] = datos_club[5].rstrip("\n")
-#                             obj_club = Club(datos_club[0],datos_club[1],datos_club[2],datos_club[3],datos_club[4],datos_club[5])
-#                             Club.lista_clubes.append(obj_club)
-#                             Club.lista_id_clubes.append(obj_club.id)
-#                         for arquero in archivo_arqueros:
-#                             datos_arquero = arquero.split(',')
-#                             datos_arquero[14] = datos_arquero[14].rstrip("\n")
-#                             obj_arquero = Arquero(datos_arquero[0],datos_arquero[1],datos_arquero[2],datos_arquero[3],datos_arquero[4],datos_arquero[5],datos_arquero[6],datos_arquero[7],datos_arquero[8],datos_arquero[9],datos_arquero[10],datos_arquero[11],datos_arquero[12],datos_arquero[13],datos_arquero[14])
-#                             Arquero.lista_arqueros.append(obj_arquero)
-#                             Persona.lista_dni_personas.append(obj_arquero.dni)
-#                         for jugadorcampo in archivo_jugadorescampo:
-#                             dato_jugadorcampo = jugadorcampo.split(',')
-#                             dato_jugadorcampo[14] = dato_jugadorcampo[14].rstrip("\n")
-#                             obj_jugadorcampo = JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
-#                             Persona.lista_dni_personas.append(obj_jugadorcampo.dni)
-#         archivo_ligas.close()
-#         archivo_clubes.close()
-#         archivo_arqueros.close()
-#         archivo_jugadorescampo.close()
-#     except:
-#         print("")
-
-
 def menu():
     menu=int(input("""Elija una opción del menú (Ingrese el número):
 1- Agregar Liga
@@ -280,12 +242,16 @@ def menu_usuario():
 
 #  revisar los try except
 
+leer_ligas()
+leer_clubes()
+leer_arqueros()
+leer_jugadorescampo()
 def menu_principal():
     #leer_archivo()
-    leer_ligas()
-    leer_clubes()
-    leer_arqueros()
-    leer_jugadorescampo()
+    # leer_ligas()
+    # leer_clubes()
+    # leer_arqueros()
+    # leer_jugadorescampo()
     while(menu != 10):
         guardo = menu()
         if guardo == 1:
@@ -302,6 +268,7 @@ def menu_principal():
             Liga.lista_nombre_ligas.append(liga.nombre)
             Liga.lista_paises_ligas.append(liga.pais)
             guardar_archivos()
+       
         elif guardo == 2:
             if len(Liga.lista_nombre_ligas) == 0:
                 print("No hay ninguna liga creada. Primero vaya a crear una.")
@@ -328,6 +295,7 @@ def menu_principal():
                         Liga.lista_ligas[i].lista_clubes.append(club)
                         Liga.lista_ligas[i].cant_clubes+=1
                 guardar_archivos()
+        
         elif guardo == 3:
             if len(Club.lista_clubes) == 0:
                 print("No hay ningun club creado. Primero vaya a crear uno.")
@@ -382,6 +350,7 @@ def menu_principal():
                     jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_tarjetas, posicion, goles, asistencias)
                     JugadorDeCampo.lista_jugadorescampo.append(jugador_de_campo)
                 guardar_archivos()
+        
         elif guardo == 4:
             if len(Club.lista_clubes) == 0:
                 print("No hay ningun club creado. Primero vaya a crear uno.")
@@ -411,6 +380,7 @@ def menu_principal():
                     monto = int(input("Ingrese el monto que desea agregar o restar al presupuesto (si desea restar, ingrese un '-' antes del número): "))
                     club.modificar_presupuesto(monto)
                 guardar_archivos()
+        
         elif guardo == 5:
             if len(Persona.lista_dni_personas) == 0:
                 print("No hay ningun jugador creado. Primero vaya a crear uno.")
@@ -442,6 +412,7 @@ def menu_principal():
                 elif sub_menu == 4:
                     break
                 guardar_archivos()
+       
         elif guardo == 6:
             if len(Liga.lista_nombre_ligas) == 0:
                 print("No hay ninguna liga creada. Primero vaya a crear una.")
@@ -483,10 +454,9 @@ def menu_principal():
 
         elif guardo < 1 or guardo >10 :
             print("Error al elegir acción. Intente de nuevo: ")
+        
         elif guardo == 10:
             break
-    # except:
-    #     print("Error. Ingrese el numero de la opcion que desea hacer.")
 
 leer_usuarios()
 while(menu_usuario != 4):
@@ -539,6 +509,7 @@ while(menu_usuario != 4):
         usuario = Usuario(nom_usuario, contrasena, nombre, apellido, dni, mail)
         Usuario.lista_usuarios.append(usuario)
         guardar_usuario()
+    
     elif guardar == 3 :
         if len(Usuario.lista_usuarios) == 0:
             print("No hay ningun usuario registrado. Para cambiar una contraseña, debe haber algún usuario registrado.")

@@ -1,1 +1,0 @@
-sup,arg,[<Club.Club object at 0x10f163e50>, <Club.Club object at 0x10f163e20>],2
