@@ -1,0 +1,2 @@
+Boca,1,Superliga,30000,0,[]
+River,2,Superliga,35000,0,[]
