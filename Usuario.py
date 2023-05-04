@@ -34,9 +34,9 @@ class Usuario():
                         for club in Club.lista_clubes:
                             archivo_clubes.write(f"{club.nombre},{club.id},{club.liga},{club.presupuesto},{club.valor_del_club},{club.lista_jugadores}\n")
                         for arquero in Arquero.lista_arqueros:
-                            archivo_arqueros.writerow(arquero.nombre + ',' + arquero.apellido + ',' + arquero.dni + ',' + arquero.edad + ',' + arquero.nacionalidad + ',' + arquero.estatura + ',' + arquero.peso + ',' + arquero.valor + ',' + arquero.club + ',' + arquero.estado + ',' + arquero.cantidad_partidos + ',' + arquero.cantidad_tarjetas + ',' + arquero.posicion + ',' + arquero.vallas_invictas + ',' + arquero.goles_recibidos)
+                            archivo_arqueros.write(f"{arquero.nombre},{arquero.apellido},{arquero.dni},{arquero.edad},{arquero.nacionalidad},{arquero.estatura},{arquero.peso},{arquero.valor},{arquero.club},{arquero.estado},{arquero.cantidad_partidos},{arquero.cantidad_tarjetas},{arquero.posicion},{arquero.vallas_invictas},{arquero.goles_recibidos}\n")
                         for jugadorcampo in JugadorDeCampo.lista_jugadorescampo:
-                            archivo_jugadorescampo.writerow(jugadorcampo.nombre + ',' + jugadorcampo.apellido + ',' + jugadorcampo.dni + ',' + jugadorcampo.edad + ',' + jugadorcampo.nacionalidad + ',' + jugadorcampo.estatura + ',' + jugadorcampo.peso + ',' + jugadorcampo.valor + ',' + jugadorcampo.club + ',' + jugadorcampo.estado + ',' + jugadorcampo.cantidad_partidos + ',' + jugadorcampo.cantidad_tarjetas + ',' + jugadorcampo.posicion + ',' + jugadorcampo.goles + ',' + jugadorcampo.asistencias)
+                            archivo_jugadorescampo.writerow(f"{jugadorcampo.nombre},{jugadorcampo.apellido},{jugadorcampo.dni},{jugadorcampo.edad},{jugadorcampo.nacionalidad},{jugadorcampo.estatura},{jugadorcampo.peso},{jugadorcampo.valor},{jugadorcampo.club},{jugadorcampo.estado},{jugadorcampo.cantidad_partidos},{jugadorcampo.cantidad_tarjetas},{jugadorcampo.posicio},{jugadorcampo.goles},{jugadorcampo.asistencias}\n")
 
     def leer_archivo(self):
         try: 
