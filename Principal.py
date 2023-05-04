@@ -146,20 +146,6 @@ def leer_usuarios():
     except:
         print("")
 
-def menu_usuario():
-    try:
-        menu=int(input("""Elija una opción del menú (Ingrese el número):
-    1- Iniciar sesión
-    2- Registrarse
-    3- Cambiar contraseña
-    4- Salir
-
-    """))
-        return menu
-    except:
-        print("Error. Ingrese el numero de la opcion que desea hacer.")
-    
-
 def menu():
     menu=int(input("""Elija una opción del menú (Ingrese el número):
 1- Agregar Liga
@@ -175,6 +161,19 @@ def menu():
 
 """))
     return menu
+
+def menu_usuario():
+    try:
+        menu=int(input("""Elija una opción del menú (Ingrese el número):
+    1- Iniciar sesión
+    2- Registrarse
+    3- Cambiar contraseña
+    4- Salir
+
+    """))
+        return menu
+    except:
+        print("Error. Ingrese el numero de la opcion que desea hacer.")
 
 #  revisar los try except
 #  revisar el leer archivo
