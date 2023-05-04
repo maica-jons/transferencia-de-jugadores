@@ -1,1 +1,1 @@
-arsenal,1,premier,30000,0,[]
+Boca,1,Superliga,30000,0,[]

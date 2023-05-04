@@ -349,6 +349,7 @@ def menu_principal():
                     for i in range(len(Club.lista_clubes)):
                         if arquero.club == Club.lista_clubes[i].nombre:
                             Club.lista_clubes[i].lista_jugadores.append(arquero)
+                    guardar_archivos()
 
                 else: 
                     posicion = "Jugador de campo"
@@ -361,7 +362,7 @@ def menu_principal():
                     for i in range(len(Club.lista_clubes)):
                         if jugador_de_campo.club == Club.lista_clubes[i].nombre:
                             Club.lista_clubes[i].lista_jugadores.append(jugador_de_campo)
-                guardar_archivos()
+                    guardar_archivos()
         
         elif guardo == 4:
             if len(Club.lista_clubes) == 0:
