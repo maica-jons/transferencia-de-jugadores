@@ -1,2 +1,1 @@
-Premier,Inglaterra,[],0
-Superliga,Argentina,[<Club.Club object at 0x104e67e80>, <Club.Club object at 0x104e67ca0>],2
+sup,arg,[<Club.Club object at 0x10f163e50>, <Club.Club object at 0x10f163e20>],2

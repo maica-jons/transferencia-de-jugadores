@@ -1,2 +1,2 @@
-Boca,1,Superliga,30000,0,[]
-River,2,Superliga,35000,0,[]
+boca,1,sup,30000,0,[]
+river,2,sup,40000,0,[]

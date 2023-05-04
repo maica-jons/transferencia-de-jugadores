@@ -1,0 +1,2 @@
+s,villa,33445599,22,colombia,1.78,80.4,12000,El nombre del club es river, cuyo ID es 2. El nombre de la liga a la que pertenece es sup, tiene 40000 de presupuesto y 0 de valor. La lista de los jugadores que tiene el club es [],Activo,10,3,Jugador de campo,6,3
+lucas,beltran,99889988,22,arg,1.87,90.5,90000,El nombre del club es river, cuyo ID es 2. El nombre de la liga a la que pertenece es sup, tiene 40000 de presupuesto y 0 de valor. La lista de los jugadores que tiene el club es [],Activo,8,1,Jugador de campo,3,3
