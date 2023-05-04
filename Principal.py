@@ -136,6 +136,9 @@ def leer_usuarios():
         with open('./usuarios.txt','r') as archivo_usuarios:
             for usuario in archivo_usuarios:
                 datos_usuario = usuario.split(",")
+                datos_usuario[5]= datos_usuario[5].rstrip("\n")
+                print(datos_usuario)
+                
                 obj_usuario = Usuario(datos_usuario[0], datos_usuario[1], datos_usuario[2], datos_usuario[3], datos_usuario[4], datos_usuario[5])
                 Usuario.lista_usuarios.append(obj_usuario)
                 Usuario.lista_nom_usuarios.append(obj_usuario.nom_usuario)
@@ -144,14 +147,18 @@ def leer_usuarios():
         print("")
 
 def menu_usuario():
-    menu=int(input("""Elija una opción del menú (Ingrese el número):
-1- Iniciar sesión
-2- Registrarse
-3- Cambiar contraseña
-4- Salir
+    try:
+        menu=int(input("""Elija una opción del menú (Ingrese el número):
+    1- Iniciar sesión
+    2- Registrarse
+    3- Cambiar contraseña
+    4- Salir
 
-"""))
-    return menu
+    """))
+        return menu
+    except:
+        print("Error. Ingrese el numero de la opcion que desea hacer.")
+        menu_usuario()
     
 
 def menu():
