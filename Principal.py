@@ -159,6 +159,10 @@ def guardar_archivos():
                         archivo_arqueros.write(f"{arquero.nombre},{arquero.apellido},{arquero.dni},{arquero.edad},{arquero.nacionalidad},{arquero.estatura},{arquero.peso},{arquero.valor},{arquero.club},{arquero.estado},{arquero.cantidad_partidos},{arquero.cantidad_tarjetas},{arquero.posicion},{arquero.vallas_invictas},{arquero.goles_recibidos}\n")
                     for jugadorcampo in JugadorDeCampo.lista_jugadorescampo:
                         archivo_jugadorescampo.writerow(f"{jugadorcampo.nombre},{jugadorcampo.apellido},{jugadorcampo.dni},{jugadorcampo.edad},{jugadorcampo.nacionalidad},{jugadorcampo.estatura},{jugadorcampo.peso},{jugadorcampo.valor},{jugadorcampo.club},{jugadorcampo.estado},{jugadorcampo.cantidad_partidos},{jugadorcampo.cantidad_tarjetas},{jugadorcampo.posicio},{jugadorcampo.goles},{jugadorcampo.asistencias}\n")
+    archivo_ligas.close()
+    archivo_clubes.close()
+    archivo_arqueros.close()
+    archivo_jugadorescampo.close()
 
 def leer_archivo():
     try: 
@@ -190,6 +194,10 @@ def leer_archivo():
                             dato_jugadorcampo[14] = dato_jugadorcampo[14].rstrip("\n")
                             obj_jugadorcampo = JugadorDeCampo(dato_jugadorcampo[0],dato_jugadorcampo[1],dato_jugadorcampo[2],dato_jugadorcampo[3],dato_jugadorcampo[4],dato_jugadorcampo[5],dato_jugadorcampo[6],dato_jugadorcampo[7],dato_jugadorcampo[8],dato_jugadorcampo[9],dato_jugadorcampo[10],dato_jugadorcampo[11],dato_jugadorcampo[12],dato_jugadorcampo[13],dato_jugadorcampo[14])
                             Persona.lista_dni_personas.append(obj_jugadorcampo.dni)
+        archivo_ligas.close()
+        archivo_clubes.close()
+        archivo_arqueros.close()
+        archivo_jugadorescampo.close()
     except:
         print("")
 
