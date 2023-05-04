@@ -1,2 +1,0 @@
-MAICA,CONTRA,maica,jons,42822598,maicajons
-MAICA,NUEVACONTRA,maica,jons,42822598,maicajons
