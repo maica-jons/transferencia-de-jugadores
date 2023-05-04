@@ -91,7 +91,7 @@ def elegir_liga():
     for i in range(len(Liga.lista_nombre_ligas)):
         print(Liga.lista_nombre_ligas[i])
     liga_nombre = str(input("Elija la liga de las que están disponibles: "))
-    while liga not in Liga.lista_nombre_ligas:
+    while liga_nombre not in Liga.lista_nombre_ligas:
         liga_nombre = str(input("Esa liga no existe. Elija la liga de las que están disponibles: "))
     for i in range(len(Liga.lista_ligas)):
         if liga_nombre == Liga.lista_ligas[i].nombre:
@@ -301,9 +301,9 @@ def menu_principal():
                 valor = validar_valor(valor)
                 for i in range(len(Club.lista_clubes)):
                     print(Club.lista_clubes[i].id, Club.lista_clubes[i].nombre)
-                idclub = input("Ingrese el ID del club al que desea agregar al jugador. Los clubes con sus respectivos IDs son los siguientes: ")
+                idclub = int(input("Ingrese el ID del club al que desea agregar al jugador. Los clubes con sus respectivos IDs son los siguientes: "))
                 while idclub not in Club.lista_id_clubes:
-                    idclub = str(input("El ID club ingresado no corresponde a ningún club existente. Elija una de las opciones que se le mostraron: "))
+                    idclub = int(input("El ID club ingresado no corresponde a ningún club existente. Elija una de las opciones que se le mostraron: "))
                 for i in range(len(Club.lista_clubes)):
                     if idclub == Club.lista_clubes[i].id:
                         club == Club.lista_clubes[i].nombre
