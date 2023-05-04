@@ -371,7 +371,7 @@ def menu_principal():
                     vallas_invictas = validar_vallas_invictas(vallas_invictas)
                     goles_recibidos = int(input("Ingrese la cantidad de goles que recibio el arquero: "))
                     goles_recibidos = validar_goles_recibidos(goles_recibidos)
-                    arquero=Arquero(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, posicion, vallas_invictas, goles_recibidos)
+                    arquero=Arquero(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_tarjetas, posicion, vallas_invictas, goles_recibidos)
                     Arquero.lista_arqueros.append(arquero)
                 else: 
                     posicion = "Jugador de campo"
@@ -379,7 +379,7 @@ def menu_principal():
                     goles = validar_goles(goles)
                     asistencias = int(input("Ingrese la cantidad de asistencias que hizo el jugador: "))
                     asistencias = validar_asistencia(asistencias)
-                    jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_partidos,cantidad_tarjetas, posicion, goles, asistencias)
+                    jugador_de_campo = JugadorDeCampo(nombre,apellido,dni,edad,nacionalidad,estatura,peso,valor,club,estado,cantidad_tarjetas, posicion, goles, asistencias)
                     JugadorDeCampo.lista_jugadorescampo.append(jugador_de_campo)
                 guardar_archivos()
         elif guardo == 4:
