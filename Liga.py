@@ -62,7 +62,7 @@ class Liga():
                 cant_tarjetas = int(input("El numero tiene que se mayor a 0. Cuantas tarjetas totales hubo en el partido? "))
             cont_t = 0
             while cont_t < cant_tarjetas:
-                club_amonestado = input("Qué club hizo gol? Para local ingrese 'l', para visitante ingrese 'v': ")
+                club_amonestado = input("Qué club recibio la tarjeta? Para local ingrese 'l', para visitante ingrese 'v': ")
                 while club_amonestado != "l" and club_amonestado != "v":
                     club_amonestado = input("No ingreso una opcion valida. Para local ingrese 'l', para visitante ingrese 'v': ")
                 if club_amonestado == "l":

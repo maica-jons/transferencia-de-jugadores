@@ -24,7 +24,7 @@ class Jugador(Persona):
         self.valor += monto
         print("El nuevo valor del jugador es", self.valor)
         
-    def modificar_estado(self):
+    def modificar_estado(self): 
         if self.estado == "Activo":
             self.estado = "Lesionado"
         else:
