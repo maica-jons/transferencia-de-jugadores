@@ -23,10 +23,10 @@ class Usuario():
         return("Mi nombre de usuario es {}.Me llamo {} {}, mi DNI es {}, mi mail es {} y mi contraseña es {}.".format(self.nom_usuario,self.apellido,self.nombre,self.dni,self.mail,self.contra))
 
     def guardar_archivos(self):
-        with open('./ligas.txt','r+') as archivo_ligas:
-            with open('./clubes.txt','r+') as archivo_clubes:
-                with open('./arqueros.txt','r+') as archivo_arqueros:
-                    with open('./jugadorescampo.txt','r+') as archivo_jugadorescampo:
+        with open('./ligas.txt','w') as archivo_ligas:
+            with open('./clubes.txt','w') as archivo_clubes:
+                with open('./arqueros.txt','w') as archivo_arqueros:
+                    with open('./jugadorescampo.txt','w') as archivo_jugadorescampo:
                         for liga in Liga.lista_ligas:
                             archivo_ligas.write(f"{liga.nombre},{liga.pais},{liga.lista_clubes},{liga.cant_clubes}\n")
                         for club in Club.lista_clubes:

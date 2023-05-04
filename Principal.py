@@ -178,6 +178,7 @@ def menu_usuario():
 #  revisar los try except
 
 def menu_principal(usu):
+    usu.leer_archivo()
     while(menu != 10):
         guardo = menu()
         if guardo == 1:
@@ -401,7 +402,6 @@ while(menu_usuario != 5):
                             contrasena = input("La contraseña es incorrecta. Intente nuevamente: ")
                         usu = Usuario.lista_usuarios[i]
                         print("Ingresado correctamente.")
-                        usu.leer_archivo()
                         menu_principal(usu)
                 if esta == "No":
                     print("El nombre de usuario no existe.")
