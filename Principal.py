@@ -125,16 +125,16 @@ def elegir_jugador(club):
             jugador = club.lista_jugadores[i]
     return jugador
 
-# def guardar_usuarios():
-#     with open('./usuarios.txt','w') as archivo_usuarios:
-#         for usuario in Usuario.lista_usuarios:
-#             archivo_usuarios.write(f"{usuario.nom_usuario},{usuario.contra},{usuario.nombre},{usuario.apellido},{usuario.dni},{usuario.mail}\n")
-#     archivo_usuarios.close()
-
-def guardar_usuario(usuario):
-    with open('./usuarios.txt','a') as archivo_usuarios:
-        archivo_usuarios.write(f"{usuario.nom_usuario},{usuario.contra},{usuario.nombre},{usuario.apellido},{usuario.dni},{usuario.mail}\n")
+def guardar_usuario():
+    with open('./usuarios.txt','w') as archivo_usuarios:
+        for usuario in Usuario.lista_usuarios:
+            archivo_usuarios.write(f"{usuario.nom_usuario},{usuario.contra},{usuario.nombre},{usuario.apellido},{usuario.dni},{usuario.mail}\n")
     archivo_usuarios.close()
+
+# def guardar_usuario(usuario):
+#     with open('./usuarios.txt','w') as archivo_usuarios:
+#         archivo_usuarios.write(f"{usuario.nom_usuario},{usuario.contra},{usuario.nombre},{usuario.apellido},{usuario.dni},{usuario.mail}\n")
+#     archivo_usuarios.close()
 
 def leer_usuarios():
     try:
@@ -172,8 +172,7 @@ def menu_usuario():
     1- Iniciar sesión
     2- Registrarse
     3- Cambiar contraseña
-    4- Ver la lista de usuarios creados
-    5- Salir
+    4- Salir
 
     """))
         return menu
@@ -388,12 +387,12 @@ def menu_principal(usu):
 
         elif guardo < 1 or guardo >10 :
             print("Error al elegir acción. Intente de nuevo: ")
-
         elif guardo == 10:
             usu.guardar_archivos()
             break
     # except:
     #     print("Error. Ingrese el numero de la opcion que desea hacer.")
+
 leer_usuarios()
 while(menu_usuario != 5):
     entrar = "no"
@@ -446,8 +445,7 @@ while(menu_usuario != 5):
             contrasena = input("No es una contraseña válida. Ingrese una contraseña: ")
         usuario = Usuario(nom_usuario, contrasena, nombre, apellido, dni, mail)
         Usuario.lista_usuarios.append(usuario)
-        guardar_usuario(usuario)
-
+        guardar_usuario()
     elif guardar == 3 :
         if len(Usuario.lista_usuarios) == 0:
             print("No hay ningun usuario registrado. Para cambiar una contraseña, debe haber algún usuario registrado.")
@@ -466,7 +464,7 @@ while(menu_usuario != 5):
                                 raise ValueError
                             contra_nueva = input("Ingrese su nueva contraseña: ")
                             Usuario.lista_usuarios[i].cambiar_contra(contra_nueva)
-                            guardar_usuario(Usuario.lista_usuarios[i])
+                            guardar_usuario()
                             esta = "Sí"
                                 # contrasena = input("La contraseña es incorrecta. Intente nuevamente: ")
                         except:
@@ -496,12 +494,12 @@ while(menu_usuario != 5):
             #             Usuario.lista_usuarios[i].cambiar_contra(contra_nueva)
             #             esta = "Sí"
 
+    elif guardar < 1 or guardar > 5 :
+        print("Error al elegir acción. Intente de nuevo: ")
+
     elif guardar == 4:
         for usuario in Usuario.lista_usuarios:
             print(usuario)
-        
-    elif guardar < 1 or guardar > 5 :
-        print("Error al elegir acción. Intente de nuevo: ")
 
     elif guardar == 5:
         break
