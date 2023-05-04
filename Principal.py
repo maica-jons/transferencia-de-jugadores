@@ -129,7 +129,6 @@ def guardar_usuarios():
     with open('./usuarios.txt','w') as archivo_usuarios:
         for usuario in Usuario.lista_usuarios:
             archivo_usuarios.write(f"{usuario.nom_usuario},{usuario.contra},{usuario.nombre},{usuario.apellido},{usuario.dni},{usuario.mail}\n")
-        #    archivo_usuarios.writerow(usuario.nom_usuario + ',' + usuario.contra + ',' + usuario.nombre + ',' + usuario.apellido + ',' + usuario.dni + ',' + usuario.mail)
     archivo_usuarios.close()
 
 def leer_usuarios():
