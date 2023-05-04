@@ -2,12 +2,11 @@ from Persona import Persona
 
 class Jugador(Persona):
 
-    def __init__(self, nombre, apellido, dni, edad, nacionalidad, estatura, peso, valor, club, estado, cantidad_partidos, cantidad_tarjetas, posicion):
+    def __init__(self, nombre, apellido, dni, edad, nacionalidad, estatura, peso, valor, club, estado, cantidad_tarjetas, posicion):
         Persona.__init__(self, nombre, apellido, dni, edad, nacionalidad, estatura, peso)
         self.valor = valor
         self.club = club
         self.estado = estado   # (Estado físico)
-        self.cantidad_partidos = cantidad_partidos
         self.cantidad_tarjetas = cantidad_tarjetas
         self.posicion=posicion
 
