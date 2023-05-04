@@ -428,11 +428,11 @@ def menu_principal():
     #     print("Error. Ingrese el numero de la opcion que desea hacer.")
 
 leer_usuarios()
-while(menu_usuario != 5):
+while(menu_usuario != 4):
     entrar = "no"
     while entrar == "no":
         guardar = menu_usuario()
-        if guardar in [1,2,3,4,5]:
+        if guardar in [1,2,3,4]:
             entrar = "si"
 
     if guardar == 1:
@@ -500,12 +500,8 @@ while(menu_usuario != 5):
                 if esta == "No":
                     print("El nombre de usuario no existe.")
 
-    elif guardar < 1 or guardar > 5 :
+    elif guardar < 1 or guardar > 4 :
         print("Error al elegir acción. Intente de nuevo: ")
 
     elif guardar == 4:
-        for usuario in Usuario.lista_usuarios:
-            print(usuario)
-
-    elif guardar == 5:
         break
