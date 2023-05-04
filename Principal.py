@@ -137,8 +137,6 @@ def leer_usuarios():
             for usuario in archivo_usuarios:
                 datos_usuario = usuario.split(",")
                 datos_usuario[5]= datos_usuario[5].rstrip("\n")
-                print(datos_usuario)
-                
                 obj_usuario = Usuario(datos_usuario[0], datos_usuario[1], datos_usuario[2], datos_usuario[3], datos_usuario[4], datos_usuario[5])
                 Usuario.lista_usuarios.append(obj_usuario)
                 Usuario.lista_nom_usuarios.append(obj_usuario.nom_usuario)
@@ -158,7 +156,6 @@ def menu_usuario():
         return menu
     except:
         print("Error. Ingrese el numero de la opcion que desea hacer.")
-        menu_usuario()
     
 
 def menu():
@@ -179,6 +176,8 @@ def menu():
 
 #  revisar los try except
 #  revisar el leer archivo 
+    #MAICA REVISO GUARDAR ARCHIVO (antes de leer archivo() ), PARA MI EL ERROR ESTABA AHI. ENTIENDO QUE AHORA FUNCIONA
+    #PROBARLO!!!
 
 def menu_principal(usu):
     try:
@@ -377,9 +376,13 @@ def menu_principal(usu):
     except:
         print("Error. Ingrese el numero de la opcion que desea hacer.")
 
-while(menu_usuario != 4): 
+while(menu_usuario != 4):
     leer_usuarios()
-    guardar = menu_usuario()
+    entrar = "no"
+    while entrar == "no":
+        guardar = menu_usuario()
+        if guardar in [1,2,3,4]:
+            entrar = "si"
     if guardar == 1:
         if len(Usuario.lista_usuarios) == 0:
             print("No hay ningun usuario registrado. Primero vaya a registrarse.")
@@ -436,7 +439,7 @@ while(menu_usuario != 4):
                         usu.cambiar_contra(contra_nueva)
                 if esta == "No":
                     print("El nombre de usuario no existe.")        
-    elif guardar < 1 or guardar >4 :
+    elif guardar < 1 or guardar > 4 :
         print("Error al elegir acción. Intente de nuevo: ")
     elif guardar == 4:
         break
